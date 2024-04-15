@@ -107,7 +107,7 @@ def learn():
     return render_template('learn.html') #:data
 
 @app.route('/quiz')
-def learn():
+def quiz():
     return render_template('quiz.html') #:data
 
 if __name__ == '__main__':
