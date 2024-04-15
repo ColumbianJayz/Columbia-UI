@@ -96,13 +96,10 @@ quiz_questions = {
     }
 
 }
-
-
 #ROUTES: homepage, learn, quiz
 @app.route('/')
 def learn():
-    return render_template('learn.html') #,data..
-@app.route('/search')
+    return render_template('learn.html') #:data
 
 if __name__ == '__main__':
     app.run(debug=True)
