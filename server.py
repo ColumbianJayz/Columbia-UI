@@ -12,7 +12,7 @@ Countries = {
         "image": "https://upload.wikimedia.org/wikipedia/commons/8/84/Flag-map_of_Venezuela.svg",
         "audio_1":
         "audio_2":
-        
+
         "next_country": "2"
     },
     "2":{
@@ -95,7 +95,14 @@ quiz_questions = {
         "next_question": "end"
     }
 
-
-
 }
 
+
+#ROUTES: homepage, learn, quiz
+@app.route('/')
+def learn():
+    return render_template('learn.html') #,data..
+@app.route('/search')
+
+if __name__ == '__main__':
+    app.run(debug=True)
