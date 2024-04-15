@@ -10,8 +10,8 @@ Countries = {
         "countries_id": "1",
         "country": "Colombia",
         "image": "https://upload.wikimedia.org/wikipedia/commons/8/84/Flag-map_of_Venezuela.svg",
-        "audio_1":
-        "audio_2":
+        #"audio_1":
+        #"audio_2":
 
         "next_country": "2"
     },
@@ -19,40 +19,40 @@ Countries = {
         "countries_id": "2",
        "country": "Venezuela",
         "image": "https://upload.wikimedia.org/wikipedia/commons/a/ab/Flag-map_of_Colombia.svg",
-        "audio_1":
-        "audio_2":
+        #"audio_1":
+        #"audio_2":
         "next_country": "3"
     },
     "3":{
         "countries_id": "3",
         "country": "Argentina",
         "image": "https://upload.wikimedia.org/wikipedia/commons/7/79/Flag_map_of_Argentina.svg",
-        "audio_1":
-        "audio_2":
+        #"audio_1":
+        #"audio_2":
         "next_country": "4"
     },
     "4":{
        "countries_id": "4",
         "country": "Mexico",
         "image": "",
-        "audio_1":
-        "audio_2":
+        #"audio_1":
+        #"audio_2":
         "next_country": "5"
     },
     "5":{
         "countries_id": "5",
         "country": "Puerto Rico",
         "image": "",
-        "audio_1":
-        "audio_2":
+        #"audio_1":
+        #"audio_2":
         "next_country": "6"
     },
     "6":{
         "countries_id": "6",
         "country": "El Salvador",
         "image": "",
-        "audio_1":
-        "audio_2":
+        #"audio_1":
+        #"audio_2":
         "next_country": "end"
     },
 }
