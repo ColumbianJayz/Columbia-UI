@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+{% block content %}
+<h1 class="edit-h1">Wanna add a song? Submit it below! ✨</h1>
+<div class="col-md-3 edit-col">
+   <form id="song-form">
+      <input class="song-input" type="text" placeholder="Enter the song name: ">
+      <input class="artist-input" type="text" placeholder="Enter the artist name: ">
+      <input class="description-input" type="text" placeholder="Enter a description: ">
+      <input class="genres-input" type="text" placeholder="Enter the genres: ">
+      <input class="year-input" type="text" placeholder="Enter the year: ">
+      <input class="img-input" type="text" placeholder="Enter the image address:  ">
+      <input id="submit-btn" type="button" value="Submit">
+   </form>
+   
+   <div id="link-container"></div>
+
+   <div id="error-messages"></div>
+
+
+
+
+
+</div>
+
+
+<script src="{{ url_for('static', filename='/songs.js') }}"></script>
+{% endblock %}
