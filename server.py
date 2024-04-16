@@ -107,9 +107,13 @@ quiz_questions = {
 def homepage():
     return render_template('homepage.html') #:data
 
-@app.route('/learn')
-def learn():
-    return render_template('learn.html') #:data
+@app.route('/learn/<countries_id>')
+def learn(countries_id):
+    item = Countries.get(countries_id)
+    if item:
+        return render_template('learn.html', item=item)
+    else:
+        return "Item not found", 404
 
 @app.route('/quiz')
 def quiz():
