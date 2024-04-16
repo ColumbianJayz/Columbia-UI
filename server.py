@@ -157,21 +157,12 @@ def quiz(quiz_id):
     else:
         # First GET request, show initial question with no feedback and zero attempts
         item = quiz_questions.get(quiz_id)
-<<<<<<< HEAD
         return render_template('quiz.html', item=item, quiz_id=quiz_id, feedback=None, attempts=0)
-
-
-=======
-        if item:
-            return render_template('quiz.html', item=item, quiz_id=quiz_id)
-        else:
-            return "Item not found", 404
     
 @app.route('/score/<int:score>')
 def score(score):
     return render_template('score.html', score=score)
     
->>>>>>> b5fd38efa182e6333009263ccb4efea9814103e1
 """
 @app.route('/quiz/end')
 def quiz_end():
