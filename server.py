@@ -1,5 +1,6 @@
 import json, re
-from flask import Flask, render_template, Response, request, jsonify
+from flask import Flask, render_template, Response, request, jsonify 
+
 
 app = Flask(__name__)
 
@@ -157,6 +158,7 @@ def quiz(quiz_id):
         # First GET request, show initial question with no feedback and zero attempts
         item = quiz_questions.get(quiz_id)
         return render_template('quiz.html', item=item, quiz_id=quiz_id, feedback=None, attempts=0)
+
 
 """
 @app.route('/quiz/end')
