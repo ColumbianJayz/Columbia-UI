@@ -1,16 +1,12 @@
 {% extends "layout.html" %}
 {% block content %}
 
-<h1 class="edit-h1">Where am I from? ✨</h1>
 <div id="quiz-container">
     {% if item %}
         <div class="row">
-            <!-- Image on the left using 4 out of 12 columns -->
             <div class="col-md-4">
                 <img src="{{ url_for('static', filename='images/audioimage.jpg') }}" alt="Sound Wave" class="img-fluid">
             </div>
-
-            <!-- Quiz content using 8 out of 12 columns -->
             <div class="col-md-8">
                 <h1 class="edit-h1">Where am I from? ✨</h1>
                 <form action="{{ url_for('quiz', quiz_id=quiz_id) }}" method="post">
@@ -22,13 +18,17 @@
                             </audio>
                         {% endif %}
                     </div>
+                    {% if feedback %}
+                        <div class="alert alert-info">{{ feedback }}</div>
+                    {% endif %}
                     <div class="options">
                         {% for option in item.options %}
-                            <button type="button" class="btn btn-outline-primary btn-block option-button" onclick="selectOption(this)" class = "option-button">
+                            <button type="button" class="btn btn-outline-primary btn-block option-button" onclick="selectOption(this)">
                                 {{ option }}
                             </button>
                         {% endfor %}
                         <input type="hidden" name="answer" id="selectedAnswer">
+                        <input type="hidden" name="attempts" value="{{ attempts }}">
                     </div>
                     <button type="submit" class="btn btn-primary">Next</button>
                 </form>
@@ -41,13 +41,8 @@
 
 <script>
     function selectOption(element) {
-        // Remove active class from all buttons
-        document.querySelectorAll('.option-button').forEach(btn => {
-            btn.classList.remove('active');
-        });
-        // Add active class to the clicked button
+        document.querySelectorAll('.option-button').forEach(btn => btn.classList.remove('active'));
         element.classList.add('active');
-        // Set the selected answer in the hidden input
         document.getElementById('selectedAnswer').value = element.textContent.trim();
     }
 </script>
