@@ -2,6 +2,17 @@
 
 /* Homepage */
 
-/* Leaning Page */
+/* Learning Page */
+.country-title{
+    text-align: center;
+}
+.country-image{
+    width: 300px;
+}
+.audio-container{
+    text-align: center;
+}
+
+
 
 /* Quiz Page */
