@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <link href="1_files/css2.css" rel="stylesheet">
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="data:,">
+
+    <!-- jquery -->
+    <script src="1_files/jquery-3.3.1.min.js"></script>
+    <script src="1_files/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="1_files/jquery-ui.css">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="1_files/bootstrap.min.css">
+
+    <link rel="stylesheet" href="1_files/main.css">
+  </head>
+
+  <body>
+
+    <div class="row nav-bar">
+      
+        <div class="col-md-3 logo-navbar">
+            <a class="nav-link" href="http://127.0.0.1:5000/">
+                <div>
+                    <img src="1_files/logoimage.png" alt="Logo" class="img-fluid logo-navbar-image">
+                    <span class="logo-title">
+                        ccento
+                    </span>
+                </div>
+            </a>
+        </div>
+
+    </div>
+
+    <div class="container-layout">
+
+<h1 class="edit-h1">Where am I from? ✨</h1>
+<div id="quiz-container">
+    
+        <div class="row">
+            <!-- Image on the left using 4 out of 12 columns -->
+            <div class="col-md-4">
+                <img src="1_files/audioimage.jpg" alt="Sound Wave" class="img-fluid">
+            </div>
+
+            <!-- Quiz content using 8 out of 12 columns -->
+            <div class="col-md-8">
+                <h1 class="edit-h1">Where am I from? ✨</h1>
+                <form action="/quiz/1" method="post">
+                    <div class="question">
+                        <h2></h2>
+                        
+                    </div>
+                    <div class="options">
+                        
+                            <button type="button" class="btn btn-outline-primary btn-block option-button" onclick="selectOption(this)">
+                                Colombia
+                            </button>
+                        
+                            <button type="button" class="btn btn-outline-primary btn-block option-button" onclick="selectOption(this)">
+                                Venezuela
+                            </button>
+                        
+                            <button type="button" class="btn btn-outline-primary btn-block option-button" onclick="selectOption(this)">
+                                Argentina
+                            </button>
+                        
+                            <button type="button" class="btn btn-outline-primary btn-block option-button" onclick="selectOption(this)">
+                                Mexico
+                            </button>
+                        
+                        <input type="hidden" name="answer" id="selectedAnswer">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Next</button>
+                </form>
+            </div>
+        </div>
+    
+</div>
+
+<script>
+    function selectOption(element) {
+        // Remove active class from all buttons
+        document.querySelectorAll('.option-button').forEach(btn => {
+            btn.classList.remove('active');
+        });
+        // Add active class to the clicked button
+        element.classList.add('active');
+        // Set the selected answer in the hidden input
+        document.getElementById('selectedAnswer').value = element.textContent.trim();
+    }
+</script>
+
+<script src="1_files/songs.js"></script>
+</div>
+  
+</body></html>

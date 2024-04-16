@@ -133,11 +133,9 @@
   max-width: 600px; /* Maximum width of the content box */
 }
 
-.img-fluid.size_of_soundwave_image {
-  max-width: 250px; /* Maximum width of the image */
-  margin: 0 auto; /* Centers the image horizontally */
-  margin-top: 55px;
-  display: block; /* Ensures the image behaves as a block element */
+.size_of_soundwave_image {
+  width: 100%; /* Makes the image responsive within its container */
+  height: auto; /* Maintains aspect ratio */
 }
 .option-button {
   max-width: 180px; /* Set the maximum width you prefer */
@@ -145,14 +143,11 @@
   display: block; /* Necessary to allow margin: auto to center the button */
 }
 
-
-
-.feedback {
-    font-size: 1.2em;
-    color: red;  /* or a suitable color based on correct (green) or incorrect (red) */
-    margin-top: 20px;
-  }
-  
+.size_of_soundwave_image {
+  width: 100%; /* Makes the image responsive to its container's width */
+  max-width: 250px; /* Maximum width of the image */
+  height: auto;
+}
 
 
 /* Score Page */
@@ -171,7 +166,6 @@
 }
 
 .score-image-pass{
-    padding-top: 40px;
     width: 12%;
     padding-bottom: 30px;
 }
@@ -183,7 +177,7 @@
 .score-text-box{
     width: 60%;
     height: 175px;
-    border: 1px ;
+    border: 1px solid;
     align-items: left;
 }
 
@@ -199,7 +193,7 @@
 
 .restart-exit-button{
     width: 60%;
-    border: 1px;
+    border: 1px solid;
     padding: 15px;
     display: block;
     text-align: center;
