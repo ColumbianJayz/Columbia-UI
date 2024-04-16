@@ -2,6 +2,25 @@
 
 {% block content %}
 
+<div class="row">
 
+        <div class="col-md-6">
+            <img src="{{ url_for('static', filename='images/womenGIF.gif') }}">
+        </div>
+
+        <div class="col-md-6 d-flex flex-column align-items-center justify-content-center text-center">
+            <span class="homepage-bio">
+                Your number one source for learning to detect hispanic accents
+            </span>
+
+            <a class="btn get-started-button" href="/learn">
+                <span class="get-started-title">
+                    Get Started
+                </span>
+            </a>            
+
+        </div>
+    
+</div>
 
 {% endblock %}
