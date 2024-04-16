@@ -93,6 +93,7 @@
 }
 .country-image {
   width: 300px;
+  height: 300px;
 }
 .container {
   margin: 0 auto;
@@ -102,6 +103,9 @@
 }
 .tips-container {
   text-align: center;
+}
+.tips-container{
+    margin: 0 auto;
 }
 
 /* Quiz Page */

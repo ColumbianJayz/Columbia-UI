@@ -7,12 +7,12 @@
         <img class='country-image' src='{{ item.image }}' alt='Image relating to the country.'><br>
     </div>
     <div class="col-md-6 audio-container">
-        <!-- You can add audio elements here if needed -->
+        <img class='country-image' src='{{ item.image }}' alt='Image relating to the country.'><br>
     </div>
 </div>
 
-<div class="col-md-12 tips-container">
-    <p tips-text>{{item.tips}}</p>
+<div class="col-md-4 tips-container">
+    <p tips-text><b>Good to know: </b>{{item.tips}}</p>
 </div>
 
 {% if item.countries_id == "6" %}

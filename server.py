@@ -13,7 +13,7 @@ Countries = {
         #"audio_1": "",
         #"audio_2": "",
         "next_country": "/learn/2",
-        "tips": "Que mas puessssssss!"
+        "tips": "Colombian Spanish is known for its clear and precise pronunciation of words. Unlike some other Latin American accents, Colombians typically articulate each syllable distinctly."
     },
     "2":{
         "countries_id": "2",
@@ -21,7 +21,8 @@ Countries = {
         "image": "https://upload.wikimedia.org/wikipedia/commons/a/ab/Flag-map_of_Colombia.svg",
         #"audio_1": "",
         #"audio_2": "",
-        "next_country": "/learn/3"
+        "next_country": "/learn/3",
+        "tips": "Like in many other Spanish-speaking cultures, Venezuelans frequently use diminutives to express affection, make things sound smaller or cuter, or simply as part of everyday speech."
     },
     "3":{
         "countries_id": "3",
@@ -29,7 +30,8 @@ Countries = {
         "image": "https://upload.wikimedia.org/wikipedia/commons/7/79/Flag_map_of_Argentina.svg",
         #"audio_1": "",
         #"audio_2": "",
-        "next_country": "/learn/4"
+        "next_country": "/learn/4",
+        "tips": "In Argentina, the \'ll\' and \'y\' sounds are often pronounced like the English \'sh\' in \"sheep\" or \"shy.\" This is called yeísmo. For example, \"pollo\" (chicken) may sound like \"po-sho\"."
     },
     "4":{
        "countries_id": "4",
@@ -37,7 +39,8 @@ Countries = {
         "image": " https://upload.wikimedia.org/wikipedia/commons/a/aa/Mexico_Flag_Map.svg",
         #"audio_1": "",
         #"audio_2": "",
-        "next_country": "/learn/5"
+        "next_country": "/learn/5",
+        "tips": "Mexican Spanish tends to have clear and distinct vowel sounds. However, there are regional variations, and in some areas, vowels may be pronounced differently or with a nasal tone."
     },
     "5":{
         "countries_id": "5",
@@ -45,7 +48,8 @@ Countries = {
         "image": " https://upload.wikimedia.org/wikipedia/commons/5/56/PR_flag_island.svg",
         #"audio_1": "",
         #"audio_2": "",
-        "next_country": "/learn/6"
+        "next_country": "/learn/6",
+        "tips": " In casual speech, especially in rapid conversation, Puerto Ricans often drop the 's' sound at the end of words or syllables. For example, \"gracias\" might sound like \"gracia.\""
     },
     "6":{
         "countries_id": "6",
@@ -53,7 +57,8 @@ Countries = {
         "image": " https://upload.wikimedia.org/wikipedia/commons/9/99/Flag-map_of_El_Salvador.png",
         #"audio_1": "",
         #"audio_2": "",
-        "next_country": "/quiz/1"
+        "next_country": "/quiz/1",
+        "tips": "El Salvador predominantly uses \"vos\" instead of \"tú\" for the informal second-person singular pronoun."
     },
 }
 
