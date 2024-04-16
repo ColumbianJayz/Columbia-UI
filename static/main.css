@@ -1,6 +1,6 @@
 /* All */
 .logo-navbar {
-    padding-left: 60px;
+  padding-left: 60px;
 }
 
 .logo-navbar-image {
@@ -15,31 +15,10 @@
 
 /* Homepage */
 
-<<<<<<< HEAD
-/* Learning Page */
-.country-title{
-  background-color: blue;
-  padding: 10px;
-  text-align: center;
-}
-.country-image{
-    width: 300px;
-}
-.container{
-    margin: 0 auto;
-    display: flex;
-    padding: 30px;
-    background-color: yellow;
-}
-.tips-container{
-    text-align: center;
-}
-
-=======
-.homepage-bio{
-    font-size: 37px;
-    font-weight: bold;
-    padding-bottom: 50px;
+.homepage-bio {
+  font-size: 37px;
+  font-weight: bold;
+  padding-bottom: 50px;
 }
 
 .get-started-button {
@@ -50,17 +29,38 @@
   text-align: center;
   background-color: #a278d7;
 }
-
-.get-started-title{
-    color: white;
-    font-weight: bold;
+.get-started-title {
+  color: white;
+  font-weight: bold;
+}
+/* Explore Page */
+.explore-title {
+  font-size: 60px;
+  font-weight: bold;
+  color: black;
 }
 
-
-/* Leaning Page */
->>>>>>> 71a7681c3991c0b2764518265ca072b9d9e9c4f3
+/* Learning Page */
+.country-title {
+  background-color: blue;
+  padding: 10px;
+  text-align: center;
+}
+.country-image {
+  width: 300px;
+}
+.container {
+  margin: 0 auto;
+  display: flex;
+  padding: 30px;
+  background-color: yellow;
+}
+.tips-container {
+  text-align: center;
+}
 
 /* Quiz Page */
+<<<<<<< HEAD
 
 
 .quiz_container {
@@ -93,4 +93,10 @@
   max-width: 180px; /* Set the maximum width you prefer */
   margin: 0 auto; /* Centers the button in the column */
   display: block; /* Necessary to allow margin: auto to center the button */
+=======
+.size_of_soundwave_image {
+  width: 100%; /* Makes the image responsive to its container's width */
+  max-width: 250px; /* Maximum width of the image */
+  height: auto;
+>>>>>>> 59f3944bc404e2ac3c84e6da6b01780fb9057ab4
 }
