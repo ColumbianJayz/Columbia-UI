@@ -1,6 +1,7 @@
 {% extends "layout.html" %}
 {% block content %}
-<h1 class="country-title">{{ item.country }}</h1>
+<h1 class="country-title col-md-12">{{ item.country }}</h1>
+
 <div class="col-md-12 container">
     <div class="col-md-6">
         <img class='country-image' src='{{ item.image }}' alt='Image relating to the country.'><br>
@@ -11,12 +12,14 @@
     </div>
     
     </div>
-  
-
-
-
-
 </div>
+<div class="col-md-12 tips-container">
+    <p tips-text>{{item.tips}}</p>
+</div>
+<button class="next-button">
+    <a href="/learn/{{item.next_country}}" class="year-text"> Next</a>
+
+</button></p>
 
 
 <script src="{{ url_for('static', filename='/songs.js') }}"></script>

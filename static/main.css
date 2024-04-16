@@ -16,15 +16,22 @@
 
 /* Learning Page */
 .country-title{
-    text-align: center;
+  background-color: blue;
+  padding: 10px;
+  text-align: center;
 }
 .country-image{
     width: 300px;
 }
-.audio-container{
+.container{
+    margin: 0 auto;
+    display: flex;
+    padding: 30px;
+    background-color: yellow;
+}
+.tips-container{
     text-align: center;
 }
-
 
 
 /* Quiz Page */
