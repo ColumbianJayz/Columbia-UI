@@ -4,19 +4,19 @@
 <h1 class="edit-h1">Where am I from? ✨</h1>
 <div id="quiz-container">
     {% if item %}
-        <div class="quiz-flex-container">
-            <!-- Image on the left -->
-            <div class="quiz-image">
-                <img src="{{ url_for('static', filename='images/audioimage.jpg') }}" alt="Sound Wave" class="size_of_soundwave_image">
+        <div class="row">
+            <!-- Image on the left using 4 out of 12 columns -->
+            <div class="col-md-4">
+                <img src="{{ url_for('static', filename='images/audioimage.jpg') }}" alt="Sound Wave" class="img-fluid">
             </div>
 
-            <!-- Quiz content on the right -->
-            <div class="quiz-content">
+            <!-- Quiz content using 8 out of 12 columns -->
+            <div class="col-md-8">
+                <h1 class="edit-h1">Where am I from? ✨</h1>
                 <form action="{{ url_for('quiz', quiz_id=quiz_id) }}" method="post">
                     <div class="question">
                         <h2>{{ item.audio_quiz | default("Listen to the audio and guess the country:") }}</h2>
                         {% if item.audio_quiz %}
-                            <!-- If there is an audio component, display it -->
                             <audio controls src="{{ url_for('static', filename=item.audio_quiz) }}">
                                 Your browser does not support the audio element.
                             </audio>
@@ -24,13 +24,13 @@
                     </div>
                     <div class="options">
                         {% for option in item.options %}
-                            <div>
-                                <input type="radio" id="option{{ loop.index }}" name="answer" value="{{ option }}">
-                                <label for="option{{ loop.index }}">{{ option }}</label>
-                            </div>
+                            <button type="button" class="btn btn-outline-primary btn-block option-button" onclick="selectOption(this)" class = "option-button">
+                                {{ option }}
+                            </button>
                         {% endfor %}
+                        <input type="hidden" name="answer" id="selectedAnswer">
                     </div>
-                    <button type="submit">Next</button>
+                    <button type="submit" class="btn btn-primary">Next</button>
                 </form>
             </div>
         </div>
@@ -39,6 +39,18 @@
     {% endif %}
 </div>
 
-<script src="{{ url_for('static', filename='/songs.js') }}"></script>
-{% endblock %}
+<script>
+    function selectOption(element) {
+        // Remove active class from all buttons
+        document.querySelectorAll('.option-button').forEach(btn => {
+            btn.classList.remove('active');
+        });
+        // Add active class to the clicked button
+        element.classList.add('active');
+        // Set the selected answer in the hidden input
+        document.getElementById('selectedAnswer').value = element.textContent.trim();
+    }
+</script>
 
+<script src="{{ url_for('static', filename='songs.js') }}"></script>
+{% endblock %}
