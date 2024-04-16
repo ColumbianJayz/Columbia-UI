@@ -67,42 +67,42 @@ quiz_id = 6
 quiz_questions = {
     "1": {
         "quiz_id": "1",
-        "audio_quiz": "",
+        "audio_quiz": "venezuelan.mp3",
         "options": ["Colombia", "Venezuela", "Argentina", "Mexico"],
         "answer": "Venezuela",
         "next_question": "2"
     },
     "2": {
         "quiz_id": "2",
-        "audio_quiz": "",
+        "audio_quiz": "argentinan.mp3",
         "options": ["Venezuela", "Argentina", "Mexico", "Puerto Rico"],
         "answer": "Argentina",
         "next_question": "3"
     },
     "3": {
         "quiz_id": "3",
-        "audio_quiz": "",
+        "audio_quiz": "Colombia.mp3",
         "options": ["Argentina", "Mexico", "Puerto Rico", "El Salvador"],
         "answer": "Colombia",
         "next_question": "4"
     },
     "4": {
         "quiz_id": "4",
-        "audio_quiz": "",
+        "audio_quiz": "salvadoran.mp3",
         "options": ["Mexico", "Puerto Rico", "El Salvador", "Colombia"],
         "answer": "El Salvador",
         "next_question": "5"
     },
     "5": {
         "quiz_id": "5",
-        "audio_quiz": "",
+        "audio_quiz": "mexico.mp3",
         "options": ["Puerto Rico", "El Salvador", "Colombia", "Venezuela"],
         "answer": "Mexico",
         "next_question": "6"
     },
     "6": {
         "quiz_id": "6",
-        "audio_quiz": "",
+        "audio_quiz": "Puerto Rico.mp3",
         "options": ["El Salvador", "Colombia", "Venezuela", "Argentina"],
         "answer": "Puerto Rico",
         "next_question": "end"
@@ -132,6 +132,7 @@ def learn(countries_id):
 
 @app.route('/quiz/<quiz_id>', methods=['GET', 'POST'])
 def quiz(quiz_id):
+    audio_filename = quiz_questions[quiz_id]["audio_quiz"]
     if request.method == 'POST':
         user_answer = request.form.get('answer')  # Capture the user's answer from the form
         attempts = int(request.form.get('attempts', 0)) + 1  # Increment attempts on each POST
@@ -154,19 +155,12 @@ def quiz(quiz_id):
             return render_template('quiz_end.html', feedback=feedback)  # Show a final page or score
         else:
             item = quiz_questions.get(next_id)
-            return render_template('quiz.html', item=item, quiz_id=next_id, feedback=feedback, attempts=attempts)
+            return render_template('quiz.html', item=item, quiz_id=next_id, feedback=feedback, attempts=attempts, audio_filename=audio_filename)
     else:
         # First GET request, show initial question with no feedback and zero attempts
         item = quiz_questions.get(quiz_id)
-<<<<<<< HEAD
-        return render_template('quiz.html', item=item, quiz_id=quiz_id, feedback=None, attempts=0)
+        return render_template('quiz.html', item=item, quiz_id=quiz_id, feedback=None, attempts=0, audio_filename=audio_filename)
 
-
-=======
-        if item:
-            return render_template('quiz.html', item=item, quiz_id=quiz_id)
-        else:
-            return "Item not found", 404
 @app.route('/audio/<path:filename>')
 def download_file(filename):
     return send_from_directory('path/to/audio/directory', filename)
@@ -175,7 +169,6 @@ def download_file(filename):
 def score(score):
     return render_template('score.html', score=score)
     
->>>>>>> b5fd38efa182e6333009263ccb4efea9814103e1
 """
 @app.route('/quiz/end')
 def quiz_end():

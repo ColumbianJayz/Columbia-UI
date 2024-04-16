@@ -13,9 +13,10 @@
                     <div class="question">
                         <h2>{{ item.audio_quiz | default("Listen to the audio and guess the country:") }}</h2>
                         {% if item.audio_quiz %}
-                            <audio controls src="{{ url_for('static', filename=item.audio_quiz) }}">
-                                Your browser does not support the audio element.
-                            </audio>
+                        <audio controls class="audio-button">
+                            <source src="{{ url_for('static', filename='audio/' + audio_filename) }}" type="audio/mpeg">
+                            Your browser does not support the audio element.
+                        </audio>
                         {% endif %}
                     </div>
                     {% if feedback %}
