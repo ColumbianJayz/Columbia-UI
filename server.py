@@ -56,6 +56,7 @@ Countries = {
     },
 }
 
+quiz_id = 6
 quiz_questions = {
     "1": {
         "quiz_id": "1",
@@ -115,9 +116,13 @@ def learn(countries_id):
     else:
         return "Item not found", 404
 
-@app.route('/quiz')
-def quiz():
-    return render_template('quiz.html') #:data
+@app.route('/quiz/<quiz_id>')
+def quiz(quiz_id):
+    item = quiz_questions.get(quiz_id)
+    if item:
+        return render_template('quiz.html', item =item)
+    else:
+        return "Item not found", 404
 
 if __name__ == '__main__':
     app.run(debug=True)
