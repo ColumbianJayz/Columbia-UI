@@ -1,0 +1,146 @@
+/* All */
+.logo-navbar {
+  padding-left: 60px;
+}
+
+.logo-navbar-image {
+  height: 65px;
+  width: auto;
+}
+
+.logo-title {
+  font-size: 40px;
+  color: #a278d7;
+}
+
+/* Homepage */
+
+.homepage-bio {
+  font-size: 37px;
+  font-weight: bold;
+  padding-bottom: 50px;
+}
+
+.get-started-button {
+  width: 60%;
+  border: 1px solid;
+  padding: 15px;
+  display: block;
+  text-align: center;
+  background-color: #a278d7;
+}
+.get-started-title {
+  color: white;
+  font-weight: bold;
+}
+/* Explore Page */
+.explore-page{
+    margin-bottom: 50px;
+}
+
+.explore-title {
+  font-size: 60px;
+  font-weight: bold;
+  color: black;
+}
+.explore-all-title{
+    font-size: 40px;
+    font-weight: bold;
+    color: #a278d7;
+}
+.explore-all-button{
+    width: 40%;
+    border: 1px solid #a278d7;
+    padding: 20px;
+    display: block;
+    text-align: center;
+
+}
+.explore-country-button{
+    width: 300px;
+    border: 1px solid #a278d7;
+    padding: 30px;
+    display: block;
+    text-align: center;
+}
+.explore-country-title{
+
+    font-size: 25px;
+    font-weight: bold;
+    color: #a278d7;
+}
+
+.explore-quiz-button{
+    width: 10%;
+    border: 1px solid ;
+    padding: 20px;
+    display: block;
+    background-color: #a278d7;
+    text-align: center;
+}
+
+.explore-quiz-title{
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+/* Learning Page */
+.country-title {
+  background-color: blue;
+  padding: 10px;
+  text-align: center;
+}
+.country-image {
+  width: 300px;
+}
+.container {
+  margin: 0 auto;
+  display: flex;
+  padding: 30px;
+  background-color: yellow;
+}
+.tips-container {
+  text-align: center;
+}
+
+/* Quiz Page */
+
+
+.quiz_container {
+  display: flex;
+  justify-content: space-between; /* Aligns children to each side of the container */
+  align-items: center; /* Center align children vertically */
+  height: 100vh; /* Optional: Takes full viewport height */
+  padding: 20px; /* Adds some padding around the content */
+}
+
+.quiz-image {
+  flex: 1; /* Allocates space for the image */
+  max-width: 300px; /* Maximum width for the image */
+}
+
+.quiz-content {
+  flex: 2; /* More space allocated to quiz content */
+  text-align: center; /* Centers the text inside the content box */
+  padding: 20px; /* Padding inside the content box */
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Optional: Adds shadow for better focus */
+  border-radius: 10px; /* Optional: Rounds the corners */
+  max-width: 600px; /* Maximum width of the content box */
+}
+
+.size_of_soundwave_image {
+  width: 100%; /* Makes the image responsive within its container */
+  height: auto; /* Maintains aspect ratio */
+}
+.option-button {
+  max-width: 180px; /* Set the maximum width you prefer */
+  margin: 0 auto; /* Centers the button in the column */
+  display: block; /* Necessary to allow margin: auto to center the button */
+}
+
+.size_of_soundwave_image {
+  width: 100%; /* Makes the image responsive to its container's width */
+  max-width: 250px; /* Maximum width of the image */
+  height: auto;
+}
