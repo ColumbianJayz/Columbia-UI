@@ -153,6 +153,10 @@ def quiz(quiz_id):
         else:
             return "Item not found", 404
     
+@app.route('/score/<int:score>')
+def score(score):
+    return render_template('score.html', score=score)
+    
 """
 @app.route('/quiz/end')
 def quiz_end():

@@ -166,7 +166,6 @@
 }
 
 .score-image-pass{
-    padding-top: 40px;
     width: 12%;
     padding-bottom: 30px;
 }
@@ -178,7 +177,7 @@
 .score-text-box{
     width: 60%;
     height: 175px;
-    border: 1px ;
+    border: 1px solid;
     align-items: left;
 }
 
@@ -194,7 +193,7 @@
 
 .restart-exit-button{
     width: 60%;
-    border: 1px;
+    border: 1px solid;
     padding: 15px;
     display: block;
     text-align: center;

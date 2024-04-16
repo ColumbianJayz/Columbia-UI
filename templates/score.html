@@ -1,0 +1,52 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="row align-items-center justify-content-center">
+    <div class="col-md-8 score-box d-flex flex-column align-items-center">
+        {% if score > 3 %}
+        <img src="{{ url_for('static', filename='images/winribbon.png') }}" class="score-image-pass">
+        <div class="score-text-box">
+            <div class="score-statement">
+                Congratulations
+            </div>
+            <div class="score-text">
+                You have successfully completed our quiz!
+            </div>
+            <div class="score-text">
+                Score: <strong>{{ score }}</strong> /6
+            </div>
+        </div>
+        {% else %}
+        <img src="{{ url_for('static', filename='images/crying-emoji.gif') }}" class="score-image-fail">
+        <div class="score-text-box">
+            <div class="score-statement">
+                Nice try!
+            </div>
+            <div class="score-text">
+                Unfortunately, you did not pass the quiz but you can try again!
+            </div>
+            <div class="score-text">
+                Score: <strong>{{ score }}</strong> /6
+            </div>
+        </div>
+        {% endif %}
+
+        <div class="row w-100 mt-4">
+            <div class="col-md-6 d-flex justify-content-start align-items-center">
+                <a class="btn restart-exit-button" href="/quiz/1">
+                    <span class="restart-exit-title">
+                        Restart
+                    </span>
+                </a> 
+            </div>
+            <div class="col-md-6 d-flex justify-content-end align-items-center">
+                <a class="btn restart-exit-button" href="/">
+                    <span class="restart-exit-title">
+                        Exit
+                    </span>
+                </a> 
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
