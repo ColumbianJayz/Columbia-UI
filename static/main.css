@@ -15,6 +15,27 @@
 
 /* Homepage */
 
+<<<<<<< HEAD
+/* Learning Page */
+.country-title{
+  background-color: blue;
+  padding: 10px;
+  text-align: center;
+}
+.country-image{
+    width: 300px;
+}
+.container{
+    margin: 0 auto;
+    display: flex;
+    padding: 30px;
+    background-color: yellow;
+}
+.tips-container{
+    text-align: center;
+}
+
+=======
 .homepage-bio{
     font-size: 37px;
     font-weight: bold;
@@ -43,6 +64,11 @@
 
 
 
+<<<<<<< HEAD
 /* Learning Page */
+=======
+/* Leaning Page */
+>>>>>>> 71a7681c3991c0b2764518265ca072b9d9e9c4f3
+>>>>>>> eb7544bebd7b6568339fcc6b5dcfa1f67cd57217
 
 /* Quiz Page */

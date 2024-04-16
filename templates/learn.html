@@ -1,17 +1,25 @@
 {% extends "layout.html" %}
 {% block content %}
-<h1 class="edit-h1">Wanna add a song? Submit it below! ✨</h1>
+<h1 class="country-title col-md-12">{{ item.country }}</h1>
+
 <div class="col-md-12 container">
     <div class="col-md-6">
-        <h1 class="view-title">{{ item.country }}</h1>
-        <img class='song-img-view' src='{{ item.image }}' alt='Image relating to the country.'><br>
+        <img class='country-image' src='{{ item.image }}' alt='Image relating to the country.'><br>
     </div>
-  
-
-
-
-
+    <div class="col-md-6 audio-container">
+        <img class='country-image' src='{{ item.image }}' alt='Image relating to the country.'><br>
+        
+    </div>
+    
+    </div>
 </div>
+<div class="col-md-12 tips-container">
+    <p tips-text>{{item.tips}}</p>
+</div>
+<button class="next-button">
+    <a href="/learn/{{item.next_country}}" class="year-text"> Next</a>
+
+</button></p>
 
 
 <script src="{{ url_for('static', filename='/songs.js') }}"></script>
