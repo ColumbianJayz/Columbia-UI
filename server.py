@@ -131,28 +131,24 @@ def learn(countries_id):
 @app.route('/quiz/<quiz_id>', methods=['GET', 'POST'])
 def quiz(quiz_id):
     if request.method == 'POST':
-        user_answer = request.form.get('answer')  # Capture the user's answer from the hidden input
-        correct_answer = quiz_questions[quiz_id]['answer']  # Get the correct answer from your data structure
-
+        user_answer = request.form.get('answer')  # Capture the user's answer from the form
+        correct_answer = quiz_questions[quiz_id]['answer']
+        
         if user_answer == correct_answer:
+            feedback = "Correct! Well done."
             next_id = quiz_questions[quiz_id]['next_question']
-            quiz_id = next_id if next_id != "end" else '1'  # Decide what to do at the end of the quiz
         else:
-            # Optionally, handle incorrect answers differently
-            next_id = quiz_id  # Could repeat the question or provide feedback
-
-        item = quiz_questions.get(next_id)
-        if item:
-            return render_template('quiz.html', item=item, quiz_id=next_id)
+            feedback = f"Incorrect! The correct answer was {correct_answer}."
+            next_id = quiz_id  # Optionally let them try the same question again or move on
+        
+        if next_id == "end":
+            return render_template('quiz_end.html', feedback=feedback)  # Show a final page or score
         else:
-            return "Item not found", 404
+            item = quiz_questions.get(next_id)
+            return render_template('quiz.html', item=item, quiz_id=next_id, feedback=feedback)
     else:
         item = quiz_questions.get(quiz_id)
-        if item:
-            return render_template('quiz.html', item=item, quiz_id=quiz_id)
-        else:
-            return "Item not found", 404
-    
+        return render_template('quiz.html', item=item, quiz_id=quiz_id, feedback=None)
 """
 @app.route('/quiz/end')
 def quiz_end():

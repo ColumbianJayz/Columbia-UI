@@ -1,7 +1,6 @@
 {% extends "layout.html" %}
 {% block content %}
 
-<h1 class="edit-h1">Where am I from? ✨</h1>
 <div id="quiz-container">
     {% if item %}
         <div class="row">
@@ -22,9 +21,12 @@
                             </audio>
                         {% endif %}
                     </div>
+                    {% if feedback %}
+                        <div class="alert alert-info">{{ feedback }}</div>
+                    {% endif %}
                     <div class="options">
                         {% for option in item.options %}
-                            <button type="button" class="btn btn-outline-primary btn-block option-button" onclick="selectOption(this)" class = "option-button">
+                            <button type="button" class="btn btn-outline-primary btn-block option-button" onclick="selectOption(this)">
                                 {{ option }}
                             </button>
                         {% endfor %}
@@ -41,13 +43,8 @@
 
 <script>
     function selectOption(element) {
-        // Remove active class from all buttons
-        document.querySelectorAll('.option-button').forEach(btn => {
-            btn.classList.remove('active');
-        });
-        // Add active class to the clicked button
+        document.querySelectorAll('.option-button').forEach(btn => btn.classList.remove('active'));
         element.classList.add('active');
-        // Set the selected answer in the hidden input
         document.getElementById('selectedAnswer').value = element.textContent.trim();
     }
 </script>

@@ -148,3 +148,9 @@
   max-width: 250px; /* Maximum width of the image */
   height: auto;
 }
+
+.feedback {
+  font-size: 1.2em;
+  color: red;  /* or a suitable color based on correct (green) or incorrect (red) */
+  margin-top: 20px;
+}
