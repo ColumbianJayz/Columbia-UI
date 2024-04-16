@@ -123,13 +123,24 @@ def learn(countries_id):
     else:
         return "Item not found", 404
 
-@app.route('/quiz/<quiz_id>')
+@app.route('/quiz/<quiz_id>', methods=['GET', 'POST'])
 def quiz(quiz_id):
+    if request.method == 'POST':
+        # Process answer here
+        next_id = quiz_questions[quiz_id]['next_question']
+        quiz_id = next_id if next_id != "end" else '1'  # Reset or redirect to some end page
+
     item = quiz_questions.get(quiz_id)
     if item:
-        return render_template('quiz.html', item =item)
+        return render_template('quiz.html', item=item, quiz_id=quiz_id)
     else:
         return "Item not found", 404
+    
+"""
+@app.route('/quiz/end')
+def quiz_end():
+    return render_template('quiz_end.html')
+"""
 
 if __name__ == '__main__':
     app.run(debug=True)
