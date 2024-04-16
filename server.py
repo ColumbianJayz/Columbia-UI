@@ -108,6 +108,12 @@ quiz_questions = {
 def homepage():
     return render_template('homepage.html') #:data
 
+
+@app.route('/explore')
+def explore():
+    return render_template('explore.html')
+
+
 @app.route('/learn/<countries_id>')
 def learn(countries_id):
     item = Countries.get(countries_id)
