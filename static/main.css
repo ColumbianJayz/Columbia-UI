@@ -43,29 +43,28 @@
 
 
 
+
 /* Learning Page */
-.homepage-bio{
-    font-size: 37px;
-    font-weight: bold;
-    padding-bottom: 50px;
-}
-
-.get-started-button {
-  width: 60%;
-  border: 1px solid;
-  padding: 15px;
-  display: block;
-  text-align: center;
-  background-color: #a278d7;
-}
-
-.get-started-title{
-    color: white;
-    font-weight: bold;
-}
-
+.country-title{
+    background-color: blue;
+    padding: 10px;
+    text-align: center;
+  }
+  .country-image{
+      width: 300px;
+  }
+  .container{
+      margin: 0 auto;
+      display: flex;
+      padding: 30px;
+      background-color: yellow;
+  }
+  .tips-container{
+      text-align: center;
+  }
 
 /* Quiz Page */
+
 
 .size_of_soundwave_image{
   width: 100%;      /* Makes the image responsive to its container's width */
