@@ -35,6 +35,14 @@
     font-weight: bold;
 }
 
+
 /* Leaning Page */
 
 /* Quiz Page */
+
+.size_of_soundwave_image{
+  width: 100%;      /* Makes the image responsive to its container's width */
+    max-width: 250px; /* Maximum width of the image */
+    height: auto;
+
+}
