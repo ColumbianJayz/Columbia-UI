@@ -29,13 +29,17 @@
 
   <body>
 
-    <div class="row nav-bar d-flex align-items-center justify-content-center">
+    <div class="row nav-bar">
       
         <div class="col-md-2">
-            <div class="logo-title">
-                <img src="{{ url_for('static', filename='images/logoimage.png') }}" alt="Logo">
-                ccento
-            </div>
+            <a class="nav-link" href="/">
+                <div class="logo-navbar">
+                    <img src="{{ url_for('static', filename='images/logoimage.png') }}" alt="Logo" class="img-fluid logo-navbar-image">
+                    <span class="logo-title">
+                        ccento
+                    </span>
+                </div>
+            </a>
         </div>
 
     </div>
