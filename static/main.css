@@ -1,6 +1,6 @@
 /* All */
 .logo-navbar {
-    padding-left: 60px;
+  padding-left: 60px;
 }
 
 .logo-navbar-image {
@@ -15,10 +15,10 @@
 
 /* Homepage */
 
-.homepage-bio{
-    font-size: 37px;
-    font-weight: bold;
-    padding-bottom: 50px;
+.homepage-bio {
+  font-size: 37px;
+  font-weight: bold;
+  padding-bottom: 50px;
 }
 
 .get-started-button {
@@ -29,46 +29,39 @@
   text-align: center;
   background-color: #a278d7;
 }
-
-.get-started-title{
-    color: white;
-    font-weight: bold;
+.get-started-title {
+  color: white;
+  font-weight: bold;
 }
 /* Explore Page */
-.explore-title{
-    font-size: 60px;
-    font-weight: bold;
-    color: black;
+.explore-title {
+  font-size: 60px;
+  font-weight: bold;
+  color: black;
 }
 
-
-
-
 /* Learning Page */
-.country-title{
-    background-color: blue;
-    padding: 10px;
-    text-align: center;
-  }
-  .country-image{
-      width: 300px;
-  }
-  .container{
-      margin: 0 auto;
-      display: flex;
-      padding: 30px;
-      background-color: yellow;
-  }
-  .tips-container{
-      text-align: center;
-  }
+.country-title {
+  background-color: blue;
+  padding: 10px;
+  text-align: center;
+}
+.country-image {
+  width: 300px;
+}
+.container {
+  margin: 0 auto;
+  display: flex;
+  padding: 30px;
+  background-color: yellow;
+}
+.tips-container {
+  text-align: center;
+}
 
 /* Quiz Page */
-
-
-.size_of_soundwave_image{
-  width: 100%;      /* Makes the image responsive to its container's width */
-    max-width: 250px; /* Maximum width of the image */
-    height: auto;
-
+.size_of_soundwave_image {
+  width: 100%; /* Makes the image responsive to its container's width */
+  max-width: 250px; /* Maximum width of the image */
+  height: auto;
 }
