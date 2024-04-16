@@ -1,5 +1,5 @@
 import json, re
-from flask import Flask, render_template, Response, request, jsonify 
+from flask import Flask, render_template, Response, request, jsonify, session
 
 
 app = Flask(__name__)
@@ -82,7 +82,7 @@ quiz_questions = {
     "3": {
         "quiz_id": "3",
         "audio_quiz": "Colombia.mp3",
-        "options": ["Argentina", "Mexico", "Puerto Rico", "El Salvador"],
+        "options": ["Argentina", "Colombia", "Puerto Rico", "El Salvador"],
         "answer": "Colombia",
         "next_question": "4"
     },
@@ -96,14 +96,14 @@ quiz_questions = {
     "5": {
         "quiz_id": "5",
         "audio_quiz": "mexico.mp3",
-        "options": ["Puerto Rico", "El Salvador", "Colombia", "Venezuela"],
+        "options": ["Puerto Rico", "El Salvador", "Mexico", "Venezuela"],
         "answer": "Mexico",
         "next_question": "6"
     },
     "6": {
         "quiz_id": "6",
         "audio_quiz": "Puerto Rico.mp3",
-        "options": ["El Salvador", "Colombia", "Venezuela", "Argentina"],
+        "options": ["El Salvador", "Colombia", "Puerto Rico", "Argentina"],
         "answer": "Puerto Rico",
         "next_question": "end"
     }
@@ -134,32 +134,32 @@ def learn(countries_id):
 def quiz(quiz_id):
     audio_filename = quiz_questions[quiz_id]["audio_quiz"]
     if request.method == 'POST':
-        user_answer = request.form.get('answer')  # Capture the user's answer from the form
-        attempts = int(request.form.get('attempts', 0)) + 1  # Increment attempts on each POST
+        user_answer = request.form.get('answer')
+        attempts = int(request.form.get('attempts', 0)) + 1
+        score = int(request.form.get('score', 0))  # Retrieve the score from the form
         correct_answer = quiz_questions[quiz_id]['answer']
 
         if user_answer == correct_answer:
             feedback = "Correct! Well done."
             next_id = quiz_questions[quiz_id]['next_question']
             attempts = 0  # Reset attempts after a correct answer
+            score += 1  # Increment score
         else:
             if attempts < 2:
                 feedback = "Incorrect! Try again."
-                next_id = quiz_id  # Let them try the same question again
+                next_id = quiz_id
             else:
                 feedback = f"Incorrect! The correct answer was {correct_answer}."
-                next_id = quiz_questions[quiz_id].get('next_question', quiz_id)  # Move to next question or repeat if not available
+                next_id = quiz_questions[quiz_id].get('next_question', quiz_id)
 
-        # Decide what to render next, either the next question or end the quiz
         if next_id == "end":
-            return render_template('quiz_end.html', feedback=feedback)  # Show a final page or score
+            return render_template('score.html', score=score)
         else:
             item = quiz_questions.get(next_id)
-            return render_template('quiz.html', item=item, quiz_id=next_id, feedback=feedback, attempts=attempts, audio_filename=audio_filename)
+            return render_template('quiz.html', item=item, quiz_id=next_id, feedback=feedback, attempts=attempts, score=score, audio_filename=audio_filename)
     else:
-        # First GET request, show initial question with no feedback and zero attempts
         item = quiz_questions.get(quiz_id)
-        return render_template('quiz.html', item=item, quiz_id=quiz_id, feedback=None, attempts=0, audio_filename=audio_filename)
+        return render_template('quiz.html', item=item, quiz_id=quiz_id, feedback=None, attempts=0, score=0, audio_filename=audio_filename)
 
 @app.route('/audio/<path:filename>')
 def download_file(filename):
