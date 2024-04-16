@@ -15,27 +15,6 @@
 
 /* Homepage */
 
-<<<<<<< HEAD
-/* Learning Page */
-.country-title{
-  background-color: blue;
-  padding: 10px;
-  text-align: center;
-}
-.country-image{
-    width: 300px;
-}
-.container{
-    margin: 0 auto;
-    display: flex;
-    padding: 30px;
-    background-color: yellow;
-}
-.tips-container{
-    text-align: center;
-}
-
-=======
 .homepage-bio{
     font-size: 37px;
     font-weight: bold;
