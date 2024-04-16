@@ -40,6 +40,33 @@
   color: black;
 }
 
+.explore-all-title{
+    font-size: 40px;
+    font-weight: bold;
+    color: #a278d7;
+}
+.explore-all-button{
+    width: 40%;
+    border: 1px solid #a278d7;
+    padding: 20px;
+    display: block;
+    text-align: center;
+
+}
+.explore-country-button{
+    width: 200px;
+    border: 1px solid #a278d7;
+    padding: 20px;
+    display: block;
+    text-align: center;
+}
+.explore-country-title{
+
+    font-size: 30px;
+    font-weight: bold;
+    color: #a278d7;
+}
+
 /* Learning Page */
 .country-title {
   background-color: blue;
