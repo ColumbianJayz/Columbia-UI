@@ -146,9 +146,11 @@
   max-width: 600px; /* Maximum width of the content box */
 }
 
-.size_of_soundwave_image {
-  width: 100%; /* Makes the image responsive within its container */
-  height: auto; /* Maintains aspect ratio */
+.img-fluid.size_of_soundwave_image {
+  max-width: 250px; /* Maximum width of the image */
+  margin: 0 auto; /* Centers the image horizontally */
+  margin-top: 55px;
+  display: block; /* Ensures the image behaves as a block element */
 }
 .option-button {
   max-width: 180px; /* Set the maximum width you prefer */
@@ -156,11 +158,7 @@
   display: block; /* Necessary to allow margin: auto to center the button */
 }
 
-.size_of_soundwave_image {
-  width: 100%; /* Makes the image responsive to its container's width */
-  max-width: 250px; /* Maximum width of the image */
-  height: auto;
-}
+
 
 .feedback {
     font-size: 1.2em;
