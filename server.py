@@ -126,15 +126,27 @@ def learn(countries_id):
 @app.route('/quiz/<quiz_id>', methods=['GET', 'POST'])
 def quiz(quiz_id):
     if request.method == 'POST':
-        # Process answer here
-        next_id = quiz_questions[quiz_id]['next_question']
-        quiz_id = next_id if next_id != "end" else '1'  # Reset or redirect to some end page
+        user_answer = request.form.get('answer')  # Capture the user's answer from the hidden input
+        correct_answer = quiz_questions[quiz_id]['answer']  # Get the correct answer from your data structure
 
-    item = quiz_questions.get(quiz_id)
-    if item:
-        return render_template('quiz.html', item=item, quiz_id=quiz_id)
+        if user_answer == correct_answer:
+            next_id = quiz_questions[quiz_id]['next_question']
+            quiz_id = next_id if next_id != "end" else '1'  # Decide what to do at the end of the quiz
+        else:
+            # Optionally, handle incorrect answers differently
+            next_id = quiz_id  # Could repeat the question or provide feedback
+
+        item = quiz_questions.get(next_id)
+        if item:
+            return render_template('quiz.html', item=item, quiz_id=next_id)
+        else:
+            return "Item not found", 404
     else:
-        return "Item not found", 404
+        item = quiz_questions.get(quiz_id)
+        if item:
+            return render_template('quiz.html', item=item, quiz_id=quiz_id)
+        else:
+            return "Item not found", 404
     
 """
 @app.route('/quiz/end')

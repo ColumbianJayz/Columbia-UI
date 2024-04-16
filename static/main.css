@@ -87,8 +87,43 @@
 }
 
 /* Quiz Page */
+<<<<<<< HEAD
+
+
+.quiz_container {
+  display: flex;
+  justify-content: space-between; /* Aligns children to each side of the container */
+  align-items: center; /* Center align children vertically */
+  height: 100vh; /* Optional: Takes full viewport height */
+  padding: 20px; /* Adds some padding around the content */
+}
+
+.quiz-image {
+  flex: 1; /* Allocates space for the image */
+  max-width: 300px; /* Maximum width for the image */
+}
+
+.quiz-content {
+  flex: 2; /* More space allocated to quiz content */
+  text-align: center; /* Centers the text inside the content box */
+  padding: 20px; /* Padding inside the content box */
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Optional: Adds shadow for better focus */
+  border-radius: 10px; /* Optional: Rounds the corners */
+  max-width: 600px; /* Maximum width of the content box */
+}
+
+.size_of_soundwave_image {
+  width: 100%; /* Makes the image responsive within its container */
+  height: auto; /* Maintains aspect ratio */
+}
+.option-button {
+  max-width: 180px; /* Set the maximum width you prefer */
+  margin: 0 auto; /* Centers the button in the column */
+  display: block; /* Necessary to allow margin: auto to center the button */
+=======
 .size_of_soundwave_image {
   width: 100%; /* Makes the image responsive to its container's width */
   max-width: 250px; /* Maximum width of the image */
   height: auto;
+>>>>>>> 59f3944bc404e2ac3c84e6da6b01780fb9057ab4
 }
