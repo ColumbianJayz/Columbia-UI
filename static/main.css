@@ -44,6 +44,25 @@
 
 
 /* Learning Page */
+.homepage-bio{
+    font-size: 37px;
+    font-weight: bold;
+    padding-bottom: 50px;
+}
+
+.get-started-button {
+  width: 60%;
+  border: 1px solid;
+  padding: 15px;
+  display: block;
+  text-align: center;
+  background-color: #a278d7;
+}
+
+.get-started-title{
+    color: white;
+    font-weight: bold;
+}
 
 
 /* Quiz Page */
