@@ -12,7 +12,7 @@ Countries = {
         "image": "https://upload.wikimedia.org/wikipedia/commons/8/84/Flag-map_of_Venezuela.svg",
         #"audio_1": "",
         #"audio_2": "",
-        "next_country": "2",
+        "next_country": "/learn/2",
         "tips": "Que mas puessssssss!"
     },
     "2":{
@@ -21,7 +21,7 @@ Countries = {
         "image": "https://upload.wikimedia.org/wikipedia/commons/a/ab/Flag-map_of_Colombia.svg",
         #"audio_1": "",
         #"audio_2": "",
-        "next_country": "3"
+        "next_country": "/learn/3"
     },
     "3":{
         "countries_id": "3",
@@ -29,7 +29,7 @@ Countries = {
         "image": "https://upload.wikimedia.org/wikipedia/commons/7/79/Flag_map_of_Argentina.svg",
         #"audio_1": "",
         #"audio_2": "",
-        "next_country": "4"
+        "next_country": "/learn/4"
     },
     "4":{
        "countries_id": "4",
@@ -37,7 +37,7 @@ Countries = {
         "image": " https://upload.wikimedia.org/wikipedia/commons/a/aa/Mexico_Flag_Map.svg",
         #"audio_1": "",
         #"audio_2": "",
-        "next_country": "5"
+        "next_country": "/learn/5"
     },
     "5":{
         "countries_id": "5",
@@ -45,7 +45,7 @@ Countries = {
         "image": " https://upload.wikimedia.org/wikipedia/commons/5/56/PR_flag_island.svg",
         #"audio_1": "",
         #"audio_2": "",
-        "next_country": "6"
+        "next_country": "/learn/6"
     },
     "6":{
         "countries_id": "6",
@@ -53,7 +53,7 @@ Countries = {
         "image": " https://upload.wikimedia.org/wikipedia/commons/9/99/Flag-map_of_El_Salvador.png",
         #"audio_1": "",
         #"audio_2": "",
-        "next_country": "end"
+        "next_country": "/quiz/1"
     },
 }
 
