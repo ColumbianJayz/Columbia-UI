@@ -70,42 +70,48 @@ quiz_questions = {
         "audio_quiz": "venezuelan.mp3",
         "options": ["Colombia", "Venezuela", "Argentina", "Mexico"],
         "answer": "Venezuela",
-        "next_question": "2"
+        "next_question": "2",
+        "previous_question": None 
     },
     "2": {
         "quiz_id": "2",
         "audio_quiz": "argentinan.mp3",
         "options": ["Venezuela", "Argentina", "Mexico", "Puerto Rico"],
         "answer": "Argentina",
-        "next_question": "3"
+        "next_question": "3",
+        "previous_question": "1"
     },
     "3": {
         "quiz_id": "3",
         "audio_quiz": "Colombia.mp3",
         "options": ["Argentina", "Colombia", "Puerto Rico", "El Salvador"],
         "answer": "Colombia",
-        "next_question": "4"
+        "next_question": "4",
+        "previous_question": "2"
     },
     "4": {
         "quiz_id": "4",
         "audio_quiz": "salvadoran.mp3",
         "options": ["Mexico", "Puerto Rico", "El Salvador", "Colombia"],
         "answer": "El Salvador",
-        "next_question": "5"
+        "next_question": "5",
+        "previous_question": "3"
     },
     "5": {
         "quiz_id": "5",
         "audio_quiz": "mexico.mp3",
         "options": ["Puerto Rico", "El Salvador", "Mexico", "Venezuela"],
         "answer": "Mexico",
-        "next_question": "6"
+        "next_question": "6",
+        "previous_question": "4"
     },
     "6": {
         "quiz_id": "6",
         "audio_quiz": "Puerto Rico.mp3",
         "options": ["El Salvador", "Colombia", "Puerto Rico", "Argentina"],
         "answer": "Puerto Rico",
-        "next_question": "end"
+        "next_question": "end",
+        "previous_question": "5"
     }
 
 }
@@ -134,6 +140,14 @@ def learn(countries_id):
 def quiz(quiz_id):
     audio_filename = quiz_questions[quiz_id]["audio_quiz"]
     if request.method == 'POST':
+        # Handle previous question navigation
+        if 'previous' in request.form:
+            previous_id = quiz_questions[quiz_id].get('previous_question')
+            if previous_id:
+                item = quiz_questions.get(previous_id)
+                return render_template('quiz.html', item=item, quiz_id=previous_id, feedback=None, attempts=0, score=request.form['score'], audio_filename=audio_filename)
+
+        # Handle answer checking and next question logic
         user_answer = request.form.get('answer')
         attempts = int(request.form.get('attempts', 0)) + 1
         score = int(request.form.get('score', 0))  # Retrieve the score from the form
@@ -160,7 +174,7 @@ def quiz(quiz_id):
     else:
         item = quiz_questions.get(quiz_id)
         return render_template('quiz.html', item=item, quiz_id=quiz_id, feedback=None, attempts=0, score=0, audio_filename=audio_filename)
-
+    
 @app.route('/audio/<path:filename>')
 def download_file(filename):
     return send_from_directory('path/to/audio/directory', filename)
