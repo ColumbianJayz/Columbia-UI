@@ -1,3 +1,13 @@
+/* OUR STYLE COLORS */
+
+:root {
+  --our-purple: #a278d7; /* Define your purple color as a variable */
+  --correct-green: #78d7a1;
+  --wrong-red: #78d7a1;
+}
+
+
+
 /* All */
 .logo-navbar {
   padding-left: 60px;
@@ -67,8 +77,10 @@
 
     font-size: 25px;
     font-weight: bold;
-    color: #a278d7;
+    color: var(--our-purple);
 }
+
+
 
 .explore-quiz-button{
     width: 10%;
@@ -197,6 +209,31 @@
   margin-left: 265px;  /* This will center the button inside its container */
 }
 
+
+
+.score-and-question {
+  display: flex;
+  justify-content: space-around;
+  padding: 5px 20px;
+  font-size: 16px;
+  font-weight: bold;
+}
+.score-and-question > div {
+  margin-right: 10px;
+}
+.feedback-and-next {
+  padding: 20px 0;
+  text-align: center;
+}
+
+/* MULTIPLE CHOICE IN QUIZ*/
+.option-button {
+  border: 2px solid #b76cd7; /* Blue border for example */
+  margin-top: 10px;
+}
+.option-button:hover {
+  border-color: #7379f5; /* Darker blue on hover */
+}
 
 
 

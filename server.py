@@ -68,23 +68,23 @@ quiz_questions = {
     "1": {
         "quiz_id": "1",
         "audio_quiz": "venezuelan.mp3",
-        "options": ["Colombia", "Venezuela", "Argentina", "Mexico"],
-        "answer": "Venezuela",
+        "options": ["Colombia 🇨🇴", "Venezuela 🇻🇪", "Argentina 🇦🇷", "Mexico 🇲🇽"],
+        "answer": "Venezuela 🇻🇪",
         "next_question": "2",
         "previous_question": None 
     },
     "2": {
         "quiz_id": "2",
         "audio_quiz": "argentinan.mp3",
-        "options": ["Venezuela", "Argentina", "Mexico", "Puerto Rico"],
-        "answer": "Argentina",
+        "options": ["Venezuela 🇻🇪", "Argentina 🇦🇷", "Mexico 🇲🇽", "Puerto Rico 🇵🇷"],
+        "answer": "Argentina 🇦🇷",
         "next_question": "3",
         "previous_question": "1"
     },
     "3": {
         "quiz_id": "3",
         "audio_quiz": "Colombia.mp3",
-        "options": ["Argentina", "Colombia", "Puerto Rico", "El Salvador"],
+        "options": ["Argentina 🇦🇷", "Colombia 🇨🇴", "Puerto Rico 🇵🇷", "El Salvador 🇸🇻"],
         "answer": "Colombia",
         "next_question": "4",
         "previous_question": "2"
@@ -92,24 +92,24 @@ quiz_questions = {
     "4": {
         "quiz_id": "4",
         "audio_quiz": "salvadoran.mp3",
-        "options": ["Mexico", "Puerto Rico", "El Salvador", "Colombia"],
-        "answer": "El Salvador",
+        "options": ["Mexico 🇲🇽", "Puerto Rico 🇵🇷", "El Salvador 🇸🇻", "Colombia 🇨🇴"],
+        "answer": "El Salvador 🇸🇻",
         "next_question": "5",
         "previous_question": "3"
     },
     "5": {
         "quiz_id": "5",
         "audio_quiz": "mexico.mp3",
-        "options": ["Puerto Rico", "El Salvador", "Mexico", "Venezuela"],
-        "answer": "Mexico",
+        "options": ["Puerto Rico 🇵🇷", "El Salvador 🇸🇻", "Mexico 🇲🇽", "Venezuela 🇻🇪"],
+        "answer": "Mexico 🇲🇽",
         "next_question": "6",
         "previous_question": "4"
     },
     "6": {
         "quiz_id": "6",
         "audio_quiz": "Puerto Rico.mp3",
-        "options": ["El Salvador", "Colombia", "Puerto Rico", "Argentina"],
-        "answer": "Puerto Rico",
+        "options": ["El Salvador 🇸🇻", "Colombia 🇨🇴", "Puerto Rico 🇵🇷","Argentina 🇦🇷"],
+        "answer": "Puerto Rico 🇵🇷",
         "next_question": "end",
         "previous_question": "5"
     }
@@ -139,15 +139,10 @@ def learn(countries_id):
 @app.route('/quiz/<quiz_id>', methods=['GET', 'POST'])
 def quiz(quiz_id):
     audio_filename = quiz_questions[quiz_id]["audio_quiz"]
-    if request.method == 'POST':
-        # Handle previous question navigation
-        if 'previous' in request.form:
-            previous_id = quiz_questions[quiz_id].get('previous_question')
-            if previous_id:
-                item = quiz_questions.get(previous_id)
-                return render_template('quiz.html', item=item, quiz_id=previous_id, feedback=None, attempts=0, score=request.form['score'], audio_filename=audio_filename)
+    current_question_number = list(quiz_questions.keys()).index(quiz_id) + 1  # Calculate current question number
+    total_questions = len(quiz_questions)  # Total number of questions
 
-        # Handle answer checking and next question logic
+    if request.method == 'POST':
         user_answer = request.form.get('answer')
         attempts = int(request.form.get('attempts', 0)) + 1
         score = int(request.form.get('score', 0))  # Retrieve the score from the form
@@ -170,11 +165,12 @@ def quiz(quiz_id):
             return render_template('score.html', score=score)
         else:
             item = quiz_questions.get(next_id)
-            return render_template('quiz.html', item=item, quiz_id=next_id, feedback=feedback, attempts=attempts, score=score, audio_filename=audio_filename)
+            return render_template('quiz.html', item=item, quiz_id=next_id, feedback=feedback, attempts=attempts, score=score, audio_filename=audio_filename, current_question_number=current_question_number, total_questions=total_questions)
     else:
         item = quiz_questions.get(quiz_id)
-        return render_template('quiz.html', item=item, quiz_id=quiz_id, feedback=None, attempts=0, score=0, audio_filename=audio_filename)
-    
+        return render_template('quiz.html', item=item, quiz_id=quiz_id, feedback=None, attempts=0, score=0, audio_filename=audio_filename, current_question_number=current_question_number, total_questions=total_questions)
+
+
 @app.route('/audio/<path:filename>')
 def download_file(filename):
     return send_from_directory('path/to/audio/directory', filename)
