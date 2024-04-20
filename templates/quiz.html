@@ -15,30 +15,31 @@
         </div>
         <div class="col-md-8">
             <h1 class="edit-h1">Where am I from? ✨</h1>
-            <div class="option-container">
-                <div class="score-and-question">
-                    <div>Question {{ current_question_number }} of {{ total_questions }}</div>
-                    <div>Score: {{ score }}</div>
-                </div>
-                {% for option in item.options %}
-                <button type="button" class="btn btn-outline-primary btn-block option-button" onclick="selectOption(this)">
-                    {{ option }}
-                </button>
-                {% endfor %}
-            </div>
-        </div>
-    </div>
-    <div class="row feedback-and-next">
-        <div class="col-12">
             <form action="{{ url_for('quiz', quiz_id=quiz_id) }}" method="post">
-                <button type="submit" class="btn btn-primary">Next</button>
+                <div class="question">
+                    
+                </div>
+                <div class="option-container">
+                    <div class="score-and-question">
+                        <div>Question {{ current_question_number }} of {{ total_questions }} Score: {{ score }}</div>
+                       
+                    </div>
+                    {% for option in item.options %}
+                    <button type="button" class="btn btn-outline-primary btn-block option-button option-top-margin" onclick="selectOption(this)">
+                        {{ option }}
+                    </button>
+                    {% endfor %}
+                </div>
+                <div class="feedback-and-next">
+                    <button type="submit" class="next-button-style btn btn-primary">Next</button>
+                    {% if feedback %}
+                    <div class="alert alert-info feedback-style">{{ feedback }}</div>
+                    {% endif %}
+                </div>
                 <input type="hidden" name="answer" id="selectedAnswer">
                 <input type="hidden" name="attempts" value="{{ attempts }}">
                 <input type="hidden" name="score" value="{{ score }}">
             </form>
-            {% if feedback %}
-            <div class="alert alert-info">{{ feedback }}</div>
-            {% endif %}
         </div>
     </div>
     {% else %}
@@ -48,7 +49,9 @@
 
 <script>
 function selectOption(element) {
-    document.querySelectorAll('.option-button').forEach(btn => btn.classList.remove('active'));
+    document.querySelectorAll('.option-button').forEach(btn => {
+        btn.classList.remove('active');
+    });
     element.classList.add('active');
     document.getElementById('selectedAnswer').value = element.textContent.trim();
 }

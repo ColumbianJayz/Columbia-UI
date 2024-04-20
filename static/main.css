@@ -3,7 +3,7 @@
 :root {
   --our-purple: #a278d7; /* Define your purple color as a variable */
   --correct-green: #78d7a1;
-  --wrong-red: #78d7a1;
+  --wrong-red: #df7584;
 }
 
 
@@ -78,6 +78,7 @@
     font-size: 25px;
     font-weight: bold;
     color: var(--our-purple);
+    
 }
 
 
@@ -107,6 +108,7 @@
   background-color: #a278d7;
   margin: 0 auto;
   color: white;
+  border-color: var(--our-purple);
 }
 .country-title {
   padding: 10px;
@@ -137,6 +139,7 @@
 
 
 .quiz_container {
+  margin-top: 50px;
   display: flex;
   justify-content: space-between; /* Aligns children to each side of the container */
   align-items: center; /* Center align children vertically */
@@ -144,6 +147,9 @@
   padding: 20px; /* Adds some padding around the content */
 }
 
+.option-top-margin{
+  margin-top: 40px;
+}
 .quiz-image {
   flex: 1; /* Allocates space for the image */
   max-width: 300px; /* Maximum width for the image */
@@ -172,9 +178,14 @@
 }
 
 .option-button {
-  margin-top: 40px;
+  margin-top: 60px;
   margin-left: 200px;
-  max-width: 180px; /* Set the maximum width you prefer */
+  max-width: 250px; /* Set the maximum width you prefer */
+  padding-top: 20px;
+  padding-bottom: 20px;
+  color: var(--our-purple);
+  
+  font-weight: bolder;
   
   display: block; /* Necessary to allow margin: auto to center the button */
 }
@@ -221,19 +232,40 @@
 .score-and-question > div {
   margin-right: 10px;
 }
-.feedback-and-next {
-  padding: 20px 0;
-  text-align: center;
+
+/* BOTTOM CONTAINER W NEXT AND FEEDBACK*/
+.next-button-style {
+  padding: 20px 150px;  /* Change size of the button */
+  
+  
+  color:var(--our-purple);  /* Text color */
+  background-color: white;
+  border-radius: 5px;  /* Rounded corners */
+  border-color: var(--our-purple);
+  margin-left: 175px;
+  margin-top: 80px;
 }
+
+
+/* Feedback directly below the Next button */
+.feedback-style {
+  margin-top: 10px;  /* Space above the feedback message */
+  width: 100%;  /* Feedback takes full width of its container */
+}
+
 
 /* MULTIPLE CHOICE IN QUIZ*/
 .option-button {
   border: 2px solid #b76cd7; /* Blue border for example */
-  margin-top: 10px;
+  background-color: white;
+  
 }
 .option-button:hover {
-  border-color: #7379f5; /* Darker blue on hover */
+ 
+  background-color: rgb(151, 209, 235);
+
 }
+
 
 
 
