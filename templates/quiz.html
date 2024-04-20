@@ -17,12 +17,11 @@
             <h1 class="edit-h1">Where am I from? ✨</h1>
             <form action="{{ url_for('quiz', quiz_id=quiz_id) }}" method="post">
                 <div class="question">
-                    
+                    <!-- Potentially more details here -->
                 </div>
                 <div class="option-container">
                     <div class="score-and-question">
                         <div>Question {{ current_question_number }} of {{ total_questions }} Score: {{ score }}</div>
-                       
                     </div>
                     {% for option in item.options %}
                     <button type="button" class="btn btn-outline-primary btn-block option-button option-top-margin" onclick="selectOption(this)">
@@ -30,10 +29,11 @@
                     </button>
                     {% endfor %}
                 </div>
-                <div class="feedback-and-next">
+                <div class="feedback-and-next ">
                     <button type="submit" class="next-button-style btn btn-primary">Next</button>
                     {% if feedback %}
-                    <div class="alert alert-info feedback-style">{{ feedback }}</div>
+                    <!-- Feedback displayed here with dynamic text color based on correctness -->
+                    <div class="alert alert-info feedback-style {{ feedback_class }}">{{ feedback }}</div>
                     {% endif %}
                 </div>
                 <input type="hidden" name="answer" id="selectedAnswer">

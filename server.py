@@ -139,33 +139,29 @@ def learn(countries_id):
 @app.route('/quiz/<quiz_id>', methods=['GET', 'POST'])
 def quiz(quiz_id):
     audio_filename = quiz_questions[quiz_id]["audio_quiz"]
-    current_question_number = list(quiz_questions.keys()).index(quiz_id) + 1  # Calculate current question number
-    total_questions = len(quiz_questions)  # Total number of questions
+    current_question_number = list(quiz_questions.keys()).index(quiz_id) + 1
+    total_questions = len(quiz_questions)
+    item = quiz_questions.get(quiz_id)
 
     if request.method == 'POST':
         user_answer = request.form.get('answer')
         attempts = int(request.form.get('attempts', 0)) + 1
-        score = int(request.form.get('score', 0))  # Retrieve the score from the form
+        score = int(request.form.get('score', 0))
         correct_answer = quiz_questions[quiz_id]['answer']
-        was_correct = user_answer == correct_answer  # Determine if the answer was correct
+        was_correct = (user_answer == correct_answer)
 
-        if was_correct:
-            feedback = "Correct! Well done."
-            score += 1  # Increment score
-        else:
-            feedback = "Incorrect! Try again." if attempts < 2 else f"Incorrect! The correct answer was {correct_answer}."
+        feedback_class = "correct-feedback" if was_correct else "incorrect-feedback"
+        feedback = "Correct! Well done." if was_correct else "Incorrect! Try again." if attempts < 2 else f"Incorrect! The correct answer was {correct_answer}."
+        score += 1 if was_correct else 0
 
         next_id = quiz_questions[quiz_id]['next_question'] if was_correct or attempts >= 2 else quiz_id
-        
         if next_id == "end":
             return render_template('score.html', score=score)
         else:
             item = quiz_questions.get(next_id)
-            return render_template('quiz.html', item=item, quiz_id=next_id, feedback=feedback, attempts=0 if was_correct else attempts, score=score, was_correct=was_correct, audio_filename=audio_filename, current_question_number=current_question_number, total_questions=total_questions)
+            return render_template('quiz.html', item=item, quiz_id=next_id, feedback=feedback, feedback_class=feedback_class, attempts=0 if was_correct else attempts, score=score, was_correct=was_correct, audio_filename=audio_filename, current_question_number=current_question_number, total_questions=total_questions)
     else:
-        item = quiz_questions.get(quiz_id)
-        return render_template('quiz.html', item=item, quiz_id=quiz_id, feedback=None, attempts=0, score=0, was_correct=None, audio_filename=audio_filename, current_question_number=current_question_number, total_questions=total_questions)
-
+        return render_template('quiz.html', item=item, quiz_id=quiz_id, feedback=None, feedback_class=None, attempts=0, score=0, was_correct=None, audio_filename=audio_filename, current_question_number=current_question_number, total_questions=total_questions)
 
 @app.route('/audio/<path:filename>')
 def download_file(filename):

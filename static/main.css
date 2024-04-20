@@ -4,6 +4,8 @@
   --our-purple: #a278d7; /* Define your purple color as a variable */
   --correct-green: #78d7a1;
   --wrong-red: #df7584;
+  
+
 }
 
 
@@ -247,12 +249,23 @@
 }
 
 
+
+
 /* Feedback directly below the Next button */
 .feedback-style {
   margin-top: 10px;  /* Space above the feedback message */
   width: 100%;  /* Feedback takes full width of its container */
 }
 
+.correct-feedback {
+  background-color: var( --correct-green);  /* Color for correct answers */
+ 
+ 
+}
+
+.incorrect-feedback {
+  background-color: var( --wrong-red);  /* Color for incorrect answers */
+}
 
 /* MULTIPLE CHOICE IN QUIZ*/
 .option-button {
