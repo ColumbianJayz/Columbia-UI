@@ -86,40 +86,66 @@
 }
 
 /* Learning Page */
+.header-container{
+  text-align: center;
+  display: flex;
+}
 .next-button{
   border: 1px solid;
-  width: 40%;
+  width: 20%;
   padding: 15px;
   display: block;
   text-align: center;
   background-color: #a278d7;
   margin: 0 auto;
+  border-radius: 10px;
+  border-color: #a278d7;
+}
+.next-button-text{
   color: white;
+  font-weight: bold;
 }
 .country-title {
   padding: 10px;
   text-align: center;
+  background: linear-gradient(to left, #a278d7, rgb(53, 182, 222), rgb(255, 0, 255));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font-size: 50px;
+  font-weight: bold;
+
+}
+.section-tracker{
+  margin-top:15px; 
+  color: rgb(53, 182, 222);
+  font-size: 25px;
+}
+.bold-counter{
+  color: #a278d7;
 }
 .country-image {
   width: 300px;
   height: 300px;
 }
-.container {
+.learn-container {
   margin: 0 auto;
   display: flex;
   padding: 30px;
 
 }
-.tips-container {
+.audio-button{
+    margin-top: 50px;
+}
+.learn-audio-container{
   text-align: center;
+  max-height: 400px;
+  min-height: 400px;
+
+
 }
 .tips-container{
-    margin: 0 auto;
-}
-
-.audio-button{
-    margin-top: 100px;
-    margin-right: 300px;
+  padding:40px;
 }
 /* Quiz Page */
 
