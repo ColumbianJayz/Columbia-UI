@@ -1,3 +1,15 @@
+/* OUR STYLE COLORS */
+
+:root {
+  --our-purple: #a278d7; /* Define your purple color as a variable */
+  --correct-green: #78d7a1;
+  --wrong-red: #df7584;
+  
+
+}
+
+
+
 /* All */
 .logo-navbar {
   padding-left: 60px;
@@ -67,8 +79,11 @@
 
     font-size: 25px;
     font-weight: bold;
-    color: #a278d7;
+    color: var(--our-purple);
+    
 }
+
+
 
 .explore-quiz-button{
     width: 10%;
@@ -95,6 +110,7 @@
   background-color: #a278d7;
   margin: 0 auto;
   color: white;
+  border-color: var(--our-purple);
 }
 .country-title {
   padding: 10px;
@@ -125,6 +141,7 @@
 
 
 .quiz_container {
+  margin-top: 50px;
   display: flex;
   justify-content: space-between; /* Aligns children to each side of the container */
   align-items: center; /* Center align children vertically */
@@ -132,6 +149,9 @@
   padding: 20px; /* Adds some padding around the content */
 }
 
+.option-top-margin{
+  margin-top: 40px;
+}
 .quiz-image {
   flex: 1; /* Allocates space for the image */
   max-width: 300px; /* Maximum width for the image */
@@ -147,15 +167,33 @@
 }
 
 .img-fluid.size_of_soundwave_image {
-  max-width: 250px; /* Maximum width of the image */
-  margin: 0 auto; /* Centers the image horizontally */
-  margin-top: 55px;
-  display: block; /* Ensures the image behaves as a block element */
+  max-width: 250px;  /* Maximum width of the image */
+  margin: 0 auto;  /* Centers the image horizontally */
+  margin-top: 55px; /* Provides top margin */
+  display: block;  /* Ensures the image behaves as a block element */
 }
+
+.quiz-audio-button {
+  width: 70%;  /* Makes the audio controls take the full width of its container */
+  display: block;  /* Ensures the audio controls behave as a block element */
+  margin: 20px auto;  /* Centers the audio horizontally and adds vertical spacing */
+}
+
 .option-button {
-  max-width: 180px; /* Set the maximum width you prefer */
-  margin: 0 auto; /* Centers the button in the column */
+  margin-top: 60px;
+  margin-left: 200px;
+  max-width: 250px; /* Set the maximum width you prefer */
+  padding-top: 20px;
+  padding-bottom: 20px;
+  color: var(--our-purple);
+  
+  font-weight: bolder;
+  
   display: block; /* Necessary to allow margin: auto to center the button */
+}
+
+.audio-link-right-shift {
+  padding-left: 20px;  /* Or any other value that suits your layout */
 }
 
 
@@ -164,8 +202,84 @@
     font-size: 1.2em;
     color: red;  /* or a suitable color based on correct (green) or incorrect (red) */
     margin-top: 20px;
-  }
+}
+
+.q-audio-and-image-formatting{
+  margin-top: 50px;
+
+
+}
+
+.score-container {
+  text-align: right;
+  padding-right: 20px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.btn-center {
+  margin-top: 50px;
+  margin-left: 265px;  /* This will center the button inside its container */
+}
+
+
+
+.score-and-question {
+  display: flex;
+  justify-content: space-around;
+  padding: 5px 20px;
+  font-size: 16px;
+  font-weight: bold;
+}
+.score-and-question > div {
+  margin-right: 10px;
+}
+
+/* BOTTOM CONTAINER W NEXT AND FEEDBACK*/
+.next-button-style {
+  padding: 20px 150px;  /* Change size of the button */
   
+  
+  color:var(--our-purple);  /* Text color */
+  background-color: white;
+  border-radius: 5px;  /* Rounded corners */
+  border-color: var(--our-purple);
+  margin-left: 175px;
+  margin-top: 80px;
+}
+
+
+
+
+/* Feedback directly below the Next button */
+.feedback-style {
+  margin-top: 10px;  /* Space above the feedback message */
+  width: 100%;  /* Feedback takes full width of its container */
+}
+
+.correct-feedback {
+  background-color: var( --correct-green);  /* Color for correct answers */
+ 
+ 
+}
+
+.incorrect-feedback {
+  background-color: var( --wrong-red);  /* Color for incorrect answers */
+}
+
+/* MULTIPLE CHOICE IN QUIZ*/
+.option-button {
+  border: 2px solid #b76cd7; /* Blue border for example */
+  background-color: white;
+  
+}
+.option-button:hover {
+ 
+  background-color: rgb(151, 209, 235);
+
+}
+
+
 
 
 /* Score Page */

@@ -68,44 +68,50 @@ quiz_questions = {
     "1": {
         "quiz_id": "1",
         "audio_quiz": "venezuelan.mp3",
-        "options": ["Colombia", "Venezuela", "Argentina", "Mexico"],
-        "answer": "Venezuela",
-        "next_question": "2"
+        "options": ["Colombia 🇨🇴", "Venezuela 🇻🇪", "Argentina 🇦🇷", "Mexico 🇲🇽"],
+        "answer": "Venezuela 🇻🇪",
+        "next_question": "2",
+        "previous_question": None 
     },
     "2": {
         "quiz_id": "2",
         "audio_quiz": "argentinan.mp3",
-        "options": ["Venezuela", "Argentina", "Mexico", "Puerto Rico"],
-        "answer": "Argentina",
-        "next_question": "3"
+        "options": ["Venezuela 🇻🇪", "Argentina 🇦🇷", "Mexico 🇲🇽", "Puerto Rico 🇵🇷"],
+        "answer": "Argentina 🇦🇷",
+        "next_question": "3",
+        "previous_question": "1"
     },
     "3": {
         "quiz_id": "3",
         "audio_quiz": "Colombia.mp3",
-        "options": ["Argentina", "Colombia", "Puerto Rico", "El Salvador"],
-        "answer": "Colombia",
-        "next_question": "4"
+        "options": ["Argentina 🇦🇷", "Colombia 🇨🇴", "Puerto Rico 🇵🇷", "El Salvador 🇸🇻"],
+        "answer": "Colombia ",
+        "next_question": "4",
+        "previous_question": "2"
     },
     "4": {
         "quiz_id": "4",
         "audio_quiz": "salvadoran.mp3",
-        "options": ["Mexico", "Puerto Rico", "El Salvador", "Colombia"],
-        "answer": "El Salvador",
-        "next_question": "5"
+        "options": ["Mexico 🇲🇽", "Puerto Rico 🇵🇷", "El Salvador 🇸🇻", "Colombia 🇨🇴"],
+        "answer": "El Salvador 🇸🇻",
+        "next_question": "5",
+        "previous_question": "3"
     },
     "5": {
         "quiz_id": "5",
         "audio_quiz": "mexico.mp3",
-        "options": ["Puerto Rico", "El Salvador", "Mexico", "Venezuela"],
-        "answer": "Mexico",
-        "next_question": "6"
+        "options": ["Puerto Rico 🇵🇷", "El Salvador 🇸🇻", "Mexico 🇲🇽", "Venezuela 🇻🇪"],
+        "answer": "Mexico 🇲🇽",
+        "next_question": "6",
+        "previous_question": "4"
     },
     "6": {
         "quiz_id": "6",
         "audio_quiz": "Puerto Rico.mp3",
-        "options": ["El Salvador", "Colombia", "Puerto Rico", "Argentina"],
-        "answer": "Puerto Rico",
-        "next_question": "end"
+        "options": ["El Salvador 🇸🇻", "Colombia 🇨🇴", "Puerto Rico 🇵🇷","Argentina 🇦🇷"],
+        "answer": "Puerto Rico 🇵🇷",
+        "next_question": "end",
+        "previous_question": "5"
     }
 
 }
@@ -133,33 +139,29 @@ def learn(countries_id):
 @app.route('/quiz/<quiz_id>', methods=['GET', 'POST'])
 def quiz(quiz_id):
     audio_filename = quiz_questions[quiz_id]["audio_quiz"]
+    current_question_number = list(quiz_questions.keys()).index(quiz_id) + 1
+    total_questions = len(quiz_questions)
+    item = quiz_questions.get(quiz_id)
+
     if request.method == 'POST':
         user_answer = request.form.get('answer')
         attempts = int(request.form.get('attempts', 0)) + 1
-        score = int(request.form.get('score', 0))  # Retrieve the score from the form
+        score = int(request.form.get('score', 0))
         correct_answer = quiz_questions[quiz_id]['answer']
+        was_correct = (user_answer == correct_answer)
 
-        if user_answer == correct_answer:
-            feedback = "Correct! Well done."
-            next_id = quiz_questions[quiz_id]['next_question']
-            attempts = 0  # Reset attempts after a correct answer
-            score += 1  # Increment score
-        else:
-            if attempts < 2:
-                feedback = "Incorrect! Try again."
-                next_id = quiz_id
-            else:
-                feedback = f"Incorrect! The correct answer was {correct_answer}."
-                next_id = quiz_questions[quiz_id].get('next_question', quiz_id)
+        feedback_class = "correct-feedback" if was_correct else "incorrect-feedback"
+        feedback = "Correct! Well done." if was_correct else "Incorrect! Try again." if attempts < 2 else f"Incorrect! The correct answer was {correct_answer}."
+        score += 1 if was_correct else 0
 
+        next_id = quiz_questions[quiz_id]['next_question'] if was_correct or attempts >= 2 else quiz_id
         if next_id == "end":
             return render_template('score.html', score=score)
         else:
             item = quiz_questions.get(next_id)
-            return render_template('quiz.html', item=item, quiz_id=next_id, feedback=feedback, attempts=attempts, score=score, audio_filename=audio_filename)
+            return render_template('quiz.html', item=item, quiz_id=next_id, feedback=feedback, feedback_class=feedback_class, attempts=0 if was_correct else attempts, score=score, was_correct=was_correct, audio_filename=audio_filename, current_question_number=current_question_number, total_questions=total_questions)
     else:
-        item = quiz_questions.get(quiz_id)
-        return render_template('quiz.html', item=item, quiz_id=quiz_id, feedback=None, attempts=0, score=0, audio_filename=audio_filename)
+        return render_template('quiz.html', item=item, quiz_id=quiz_id, feedback=None, feedback_class=None, attempts=0, score=0, was_correct=None, audio_filename=audio_filename, current_question_number=current_question_number, total_questions=total_questions)
 
 @app.route('/audio/<path:filename>')
 def download_file(filename):
