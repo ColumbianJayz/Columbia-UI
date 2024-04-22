@@ -1,4 +1,5 @@
-import json, re
+import json
+import re
 from flask import Flask, render_template, Response, request, jsonify, session
 
 
@@ -7,57 +8,57 @@ app = Flask(__name__)
 current_id = 6
 
 Countries = {
-   "1": {
+    "1": {
         "countries_id": "1",
         "country": "Colombia",
         "image": "https://upload.wikimedia.org/wikipedia/commons/8/84/Flag-map_of_Venezuela.svg",
         "audio_1": "Colombia.mp3",
-        #"audio_2": "",
+        # "audio_2": "",
         "next_country": "/learn/2",
         "tips": "Colombian Spanish is known for its clear and precise pronunciation of words. Unlike some other Latin American accents, Colombians typically articulate each syllable distinctly."
     },
-    "2":{
+    "2": {
         "countries_id": "2",
-       "country": "Venezuela",
+        "country": "Venezuela",
         "image": "https://upload.wikimedia.org/wikipedia/commons/a/ab/Flag-map_of_Colombia.svg",
         "audio_1": "venezuelan.mp3",
-        #"audio_2": "",
+        # "audio_2": "",
         "next_country": "/learn/3",
         "tips": "Like in many other Spanish-speaking cultures, Venezuelans frequently use diminutives to express affection, make things sound smaller or cuter, or simply as part of everyday speech."
     },
-    "3":{
+    "3": {
         "countries_id": "3",
         "country": "Argentina",
         "image": "https://upload.wikimedia.org/wikipedia/commons/7/79/Flag_map_of_Argentina.svg",
         "audio_1": "argentinan.mp3",
-        #"audio_2": "",
+        # "audio_2": "",
         "next_country": "/learn/4",
         "tips": "In Argentina, the \'ll\' and \'y\' sounds are often pronounced like the English \'sh\' in \"sheep\" or \"shy.\" This is called yeísmo. For example, \"pollo\" (chicken) may sound like \"po-sho\"."
     },
-    "4":{
-       "countries_id": "4",
+    "4": {
+        "countries_id": "4",
         "country": "Mexico",
         "image": " https://upload.wikimedia.org/wikipedia/commons/a/aa/Mexico_Flag_Map.svg",
         "audio_1": "mexico.mp3",
-        #"audio_2": "",
+        # "audio_2": "",
         "next_country": "/learn/5",
         "tips": "Mexican Spanish tends to have clear and distinct vowel sounds. However, there are regional variations, and in some areas, vowels may be pronounced differently or with a nasal tone."
     },
-    "5":{
+    "5": {
         "countries_id": "5",
         "country": "Puerto Rico",
         "image": " https://upload.wikimedia.org/wikipedia/commons/5/56/PR_flag_island.svg",
         "audio_1": "Puerto Rico.mp3",
-        #"audio_2": "",
+        # "audio_2": "",
         "next_country": "/learn/6",
         "tips": " In casual speech, especially in rapid conversation, Puerto Ricans often drop the 's' sound at the end of words or syllables. For example, \"gracias\" might sound like \"gracia.\""
     },
-    "6":{
+    "6": {
         "countries_id": "6",
         "country": "El Salvador",
         "image": " https://upload.wikimedia.org/wikipedia/commons/9/99/Flag-map_of_El_Salvador.png",
         "audio_1": "salvadoran.mp3",
-        #"audio_2": "",
+        # "audio_2": "",
         "next_country": "/quiz/1",
         "tips": "El Salvador predominantly uses \"vos\" instead of \"tú\" for the informal second-person singular pronoun."
     },
@@ -71,7 +72,7 @@ quiz_questions = {
         "options": ["Colombia 🇨🇴", "Venezuela 🇻🇪", "Argentina 🇦🇷", "Mexico 🇲🇽"],
         "answer": "Venezuela 🇻🇪",
         "next_question": "2",
-        "previous_question": None 
+        "previous_question": None
     },
     "2": {
         "quiz_id": "2",
@@ -85,7 +86,7 @@ quiz_questions = {
         "quiz_id": "3",
         "audio_quiz": "Colombia.mp3",
         "options": ["Argentina 🇦🇷", "Colombia 🇨🇴", "Puerto Rico 🇵🇷", "El Salvador 🇸🇻"],
-        "answer": "Colombia ",
+        "answer": "Colombia 🇨🇴",
         "next_question": "4",
         "previous_question": "2"
     },
@@ -108,7 +109,7 @@ quiz_questions = {
     "6": {
         "quiz_id": "6",
         "audio_quiz": "Puerto Rico.mp3",
-        "options": ["El Salvador 🇸🇻", "Colombia 🇨🇴", "Puerto Rico 🇵🇷","Argentina 🇦🇷"],
+        "options": ["El Salvador 🇸🇻", "Colombia 🇨🇴", "Puerto Rico 🇵🇷", "Argentina 🇦🇷"],
         "answer": "Puerto Rico 🇵🇷",
         "next_question": "end",
         "previous_question": "5"
@@ -116,10 +117,12 @@ quiz_questions = {
 
 }
 
-#ROUTES: homepage, learn, quiz
+# ROUTES: homepage, learn, quiz
+
+
 @app.route('/')
 def homepage():
-    return render_template('homepage.html') #:data
+    return render_template('homepage.html')  # :data
 
 
 @app.route('/explore')
@@ -135,6 +138,7 @@ def learn(countries_id):
         return render_template('learn.html', item=item, audio_filename=audio_filename)
     else:
         return "Item not found", 404
+
 
 @app.route('/quiz/<quiz_id>', methods=['GET', 'POST'])
 def quiz(quiz_id):
@@ -155,6 +159,7 @@ def quiz(quiz_id):
         score += 1 if was_correct else 0
 
         next_id = quiz_questions[quiz_id]['next_question'] if was_correct or attempts >= 2 else quiz_id
+        
         if next_id == "end":
             return render_template('score.html', score=score)
         else:
@@ -166,16 +171,12 @@ def quiz(quiz_id):
 @app.route('/audio/<path:filename>')
 def download_file(filename):
     return send_from_directory('path/to/audio/directory', filename)
-    
+
+
 @app.route('/score/<int:score>')
 def score(score):
     return render_template('score.html', score=score)
-    
-"""
-@app.route('/quiz/end')
-def quiz_end():
-    return render_template('quiz_end.html')
-"""
+
 
 if __name__ == '__main__':
     app.run(debug=True)

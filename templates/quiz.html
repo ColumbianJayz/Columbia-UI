@@ -13,29 +13,31 @@
             </audio>
             {% endif %}
         </div>
+
         <div class="col-md-8">
             <h1 class="edit-h1">Where am I from? ✨</h1>
+
             <form action="{{ url_for('quiz', quiz_id=quiz_id) }}" method="post">
                 <div class="question">
-                    <!-- Potentially more details here -->
+                    <!-- Details about the question could be dynamically loaded here too if needed -->
                 </div>
                 <div class="option-container">
-                    <div class="score-and-question">
-                        <div>Question {{ current_question_number }} of {{ total_questions }} Score: {{ score }}</div>
+                    <div id="score-and-question" class="score-and-question">
+                        Question {{ current_question_number }} of {{ total_questions }} Score: {{ score }}
                     </div>
                     {% for option in item.options %}
-                    <button type="button" class="btn btn-outline-primary btn-block option-button option-top-margin" onclick="selectOption(this)">
+                    <button type="button" class="btn btn-outline-primary btn-block option-button option-top-margin">
                         {{ option }}
                     </button>
                     {% endfor %}
                 </div>
-                <div class="feedback-and-next ">
-                    <button type="submit" class="next-button-style btn btn-primary">Next</button>
+                <div id="feedback-and-next" class="feedback-and-next">
+                    <button id="submit-answer" class="next-button-style btn btn-primary" disabled>Next</button>
                     {% if feedback %}
-                    <!-- Feedback displayed here with dynamic text color based on correctness -->
-                    <div class="alert alert-info feedback-style {{ feedback_class }}">{{ feedback }}</div>
+                    <div id="feedback-container" class="alert alert-info feedback-style {{ feedback_class }}">{{ feedback }}</div>
                     {% endif %}
                 </div>
+
                 <input type="hidden" name="answer" id="selectedAnswer">
                 <input type="hidden" name="attempts" value="{{ attempts }}">
                 <input type="hidden" name="score" value="{{ score }}">
@@ -46,14 +48,5 @@
     <p>No quiz data found.</p>
     {% endif %}
 </div>
-
-<script>
-function selectOption(element) {
-    document.querySelectorAll('.option-button').forEach(btn => {
-        btn.classList.remove('active');
-    });
-    element.classList.add('active');
-    document.getElementById('selectedAnswer').value = element.textContent.trim();
-}
-</script>
+<script src="{{ url_for('static', filename='js/quiz.js') }}"></script>
 {% endblock %}
