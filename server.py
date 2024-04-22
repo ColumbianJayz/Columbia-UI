@@ -11,7 +11,7 @@ Countries = {
     "1": {
         "countries_id": "1",
         "country": "Colombia",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/8/84/Flag-map_of_Venezuela.svg",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/a/ab/Flag-map_of_Colombia.svg",
         "audio_1": "Colombia.mp3",
         # "audio_2": "",
         "next_country": "/learn/2",
@@ -20,7 +20,7 @@ Countries = {
     "2": {
         "countries_id": "2",
         "country": "Venezuela",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/a/ab/Flag-map_of_Colombia.svg",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/8/84/Flag-map_of_Venezuela.svg",
         "audio_1": "venezuelan.mp3",
         # "audio_2": "",
         "next_country": "/learn/3",
