@@ -4,49 +4,49 @@
 <div id="quiz-container">
     {% if item %}
     <div class="row">
-        <div class="col-md-4">
+        <div class="col-md-4 q-audio-and-image-formatting">
             <img src="{{ url_for('static', filename='images/audioimage.jpg') }}" alt="Sound Wave" class="img-fluid size_of_soundwave_image">
+            {% if item.audio_quiz %}
+            <audio controls class="quiz-audio-button">
+                <source src="{{ url_for('static', filename='audio/' + item.audio_quiz) }}" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+            {% endif %}
         </div>
+
         <div class="col-md-8">
             <h1 class="edit-h1">Where am I from? ✨</h1>
+
             <form action="{{ url_for('quiz', quiz_id=quiz_id) }}" method="post">
                 <div class="question">
-                    <h2>Listen to the audio and guess the country:</h2>
-                    {% if item.audio_quiz %}
-                    <audio controls class="audio-button">
-                        <source src="{{ url_for('static', filename='audio/' + item.audio_quiz) }}" type="audio/mpeg">
-                        Your browser does not support the audio element.
-                    </audio>
-                    {% endif %}
+                    <!-- Details about the question could be dynamically loaded here too if needed -->
                 </div>
-                {% if feedback %}
-                <div class="alert alert-info">{{ feedback }}</div>
-                {% endif %}
-                <div class="options">
+                <div class="option-container">
+                    <div id="score-and-question" class="score-and-question">
+                        Question {{ current_question_number }} of {{ total_questions }} Score: {{ score }}
+                    </div>
                     {% for option in item.options %}
-                    <button type="button" class="btn btn-outline-primary btn-block option-button" onclick="selectOption(this)">
+                    <button type="button" class="btn btn-outline-primary btn-block option-button option-top-margin">
                         {{ option }}
                     </button>
                     {% endfor %}
-                    <input type="hidden" name="answer" id="selectedAnswer">
-                    <input type="hidden" name="attempts" value="{{ attempts }}">
-                    <input type="hidden" name="score" value="{{ score }}">  <!-- Hidden score input -->
                 </div>
-                <button type="submit" class="btn btn-primary">Next</button>
+                <div id="feedback-and-next" class="feedback-and-next">
+                    <button id="submit-answer" class="next-button-style btn btn-primary" disabled>Next</button>
+                    {% if feedback %}
+                    <div id="feedback-container" class="alert alert-info feedback-style {{ feedback_class }}">{{ feedback }}</div>
+                    {% endif %}
+                </div>
+
+                <input type="hidden" name="answer" id="selectedAnswer">
+                <input type="hidden" name="attempts" value="{{ attempts }}">
+                <input type="hidden" name="score" value="{{ score }}">
             </form>
-            <div>Current Score: {{ score }}</div>  <!-- Display the current score -->
         </div>
     </div>
     {% else %}
     <p>No quiz data found.</p>
     {% endif %}
 </div>
-
-<script>
-function selectOption(element) {
-    document.querySelectorAll('.option-button').forEach(btn => btn.classList.remove('active'));
-    element.classList.add('active');
-    document.getElementById('selectedAnswer').value = element.textContent.trim();
-}
-</script>
+<script src="{{ url_for('static', filename='js/quiz.js') }}"></script>
 {% endblock %}
