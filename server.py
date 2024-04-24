@@ -6,6 +6,7 @@ from flask import Flask, render_template, Response, request, jsonify, session
 app = Flask(__name__)
 
 current_id = 6
+current_score = 0
 
 Countries = {
     "1": {
@@ -142,31 +143,49 @@ def learn(countries_id):
 
 @app.route('/quiz/<quiz_id>', methods=['GET', 'POST'])
 def quiz(quiz_id):
+    global current_score
     audio_filename = quiz_questions[quiz_id]["audio_quiz"]
     current_question_number = list(quiz_questions.keys()).index(quiz_id) + 1
-    total_questions = len(quiz_questions)
     item = quiz_questions.get(quiz_id)
+    total_questions=len(quiz_questions)
 
     if request.method == 'POST':
-        user_answer = request.form.get('answer')
-        attempts = int(request.form.get('attempts', 0)) + 1
-        score = int(request.form.get('score', 0))
-        correct_answer = quiz_questions[quiz_id]['answer']
-        was_correct = (user_answer == correct_answer)
+        data = request.get_json()
+        selected_option = data['option']
+        attempts = data['attempts']
+        score = data['score']
+        current_answer = item['answer']
 
-        feedback_class = "correct-feedback" if was_correct else "incorrect-feedback"
-        feedback = "Correct! Well done." if was_correct else "Incorrect! Try again." if attempts < 2 else f"Incorrect! The correct answer was {correct_answer}."
-        score += 1 if was_correct else 0
 
-        next_id = quiz_questions[quiz_id]['next_question'] if was_correct or attempts >= 2 else quiz_id
-        
-        if next_id == "end":
-            return render_template('score.html', score=score)
+        if selected_option == item['answer']:
+            feedback = "Correct!"
+            feedback_class = "correct-feedback"
+            current_score += 1  # Increment score
         else:
-            item = quiz_questions.get(next_id)
-            return render_template('quiz.html', item=item, quiz_id=next_id, feedback=feedback, feedback_class=feedback_class, attempts=0 if was_correct else attempts, score=score, was_correct=was_correct, audio_filename=audio_filename, current_question_number=current_question_number, total_questions=total_questions)
-    else:
-        return render_template('quiz.html', item=item, quiz_id=quiz_id, feedback=None, feedback_class=None, attempts=0, score=0, was_correct=None, audio_filename=audio_filename, current_question_number=current_question_number, total_questions=total_questions)
+            feedback_class = "incorrect-feedback"
+            if attempts == 0:
+                feedback = "Incorrect! Try again."
+                attempts += 1
+            else:
+                feedback = f"Incorrect! The correct answer was {current_answer}."
+                attempts += 1
+
+        return jsonify({
+            'feedback': feedback,
+            'feedback_class': feedback_class,
+            'score': current_score,
+            'attempts': attempts,
+            'current_question_number': current_question_number,
+            'total_questions': total_questions
+        })
+
+    return render_template('quiz.html', item=item, quiz_id=quiz_id, feedback=None,
+                           feedback_class=None, attempts=0,
+                           score=current_score, audio_filename=audio_filename,
+                           current_question_number=current_question_number,  # Update accordingly
+                           total_questions=len(quiz_questions))
+
+
 
 @app.route('/audio/<path:filename>')
 def download_file(filename):
@@ -175,8 +194,15 @@ def download_file(filename):
 
 @app.route('/score/<int:score>')
 def score(score):
+    global current_score 
+    current_score = 0
     return render_template('score.html', score=score)
 
+@app.route('/reset_score')
+def reset_score():
+    global current_score
+    current_score = 0
+    return "Score has been reset"
 
 if __name__ == '__main__':
     app.run(debug=True)
