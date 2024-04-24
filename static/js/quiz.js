@@ -62,17 +62,18 @@ $(document).ready(function() {
 
     $('#next-question').click(function() {
         let currentQuizId = $('#quiz-id').data('quiz-id');
-        $.ajax({
-            url: '/reset_score',
-            type: 'POST',
-            success: function(response) {
-            },
-            error: function() {
-                alert('Failed to reset the score.');
-            }
-        });
         
         if(currentQuizId == '6'){
+            $.ajax({
+                url: '/reset_score',
+                type: 'POST',
+                success: function(response) {
+                },
+                error: function() {
+                    alert('Failed to reset the score.');
+                }
+            });
+
             let score = parseInt($('input[name="score"]').val()) || 0;
             let baseUrl = window.location.origin;
             let nextUrl = `${baseUrl}/score/${score}`;
