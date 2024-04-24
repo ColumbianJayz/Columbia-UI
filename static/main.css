@@ -13,6 +13,13 @@
 
 
 /* All */
+.nav-bar{
+  padding-top: 15px;
+}
+.logo-container {
+  position: relative;
+  display: inline-block;
+}
 .logo-navbar {
   padding-left: 60px;
 }
@@ -23,8 +30,16 @@
 }
 
 .logo-title {
-  font-size: 40px;
-  color: #a278d7;
+    position: absolute;
+    top: 50%;  /* Center vertically */
+    left: 120%;  /* Center horizontally */
+    transform: translate(-50%, -50%);  /* Adjust based on actual size of the image */
+    color: #a278d7;
+    font-size: 25px; 
+}
+.nav-link{
+  display: flex;
+  margin-left: 40px;
 }
 
 /* Homepage */
@@ -32,7 +47,8 @@
 .homepage-bio {
   font-size: 37px;
   font-weight: bold;
-  padding-bottom: 50px;
+  padding-bottom: 120px;
+  margin-right: 100px;
 }
 
 .get-started-button {
@@ -42,12 +58,22 @@
   display: block;
   text-align: center;
   background-color: #a278d7;
-}
-.get-started-title {
+  border-color: #a278d7;
+  margin-right: 115px;
   color: white;
+  border-radius: 15px;
   font-weight: bold;
 }
+.get-started-button:hover{
+  background-color: white;
+  color: #a278d7;
+}
+
 /* Explore Page */
+.hola{
+  padding-bottom: 30px;
+  margin-top: -20px;
+}
 .explore-page{
     margin-bottom: 50px;
 }
@@ -55,50 +81,71 @@
 .explore-title {
   font-size: 60px;
   font-weight: bold;
-  color: black;
+  background: linear-gradient(to left, #a278d7, rgb(53, 182, 222), rgb(255, 0, 255));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 .explore-all-title{
-    font-size: 40px;
+    font-size: 20px;
     font-weight: bold;
     color: #a278d7;
 }
 .explore-all-button{
-    width: 40%;
+    width: 30%;
     border: 1px solid #a278d7;
-    padding: 20px;
+    padding: 10px;
     display: block;
     text-align: center;
+    font-size: 40px;
+    font-weight: bold;
+    color: #a278d7;
+    border-radius: 15px;
+    font-size: 30px;
+    font-weight: bold;
+    color: #a278d7;
 
 }
+.explore-all-button:hover{
+  background-color: #a278d7;
+  color: white;
+}
+
 .explore-country-button{
     width: 300px;
     border: 1px solid #a278d7;
-    padding: 30px;
+    border-radius: 15px;
+    padding: 20px;
     display: block;
     text-align: center;
-}
-.explore-country-title{
-
     font-size: 25px;
     font-weight: bold;
     color: var(--our-purple);
     
 }
-
+.explore-country-button:hover{
+  background-color: #a278d7;
+  color: white;
+}
 .explore-quiz-button{
-    width: 10%;
+    width: 20%;
     border: 1px solid ;
     padding: 20px;
     display: block;
     background-color: #a278d7;
     text-align: center;
-}
-
-.explore-quiz-title{
     color: white;
     font-weight: bold;
     font-size: 20px;
+    border-radius: 20px;
+
 }
+.explore-quiz-button:hover{
+  background-color: white;
+  color:#a278d7;
+}
+
+
 
 /* Learning Page */
 .header-container{
@@ -115,11 +162,18 @@
   margin: 0 auto;
   border-radius: 10px;
   border-color: #a278d7;
+  color: white;
+  font-weight: bold;
+}
+.next-button:hover{
+  background-color: white;
+  color: #a278d7;
 }
 .next-button-text{
   color: white;
   font-weight: bold;
 }
+
 .country-title {
   padding: 10px;
   text-align: center;
@@ -127,7 +181,7 @@
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
-  font-size: 50px;
+  font-size: 60px;
   font-weight: bold;
 
 }
@@ -142,6 +196,7 @@
 .country-image {
   width: 300px;
   height: 300px;
+  margin-left: 40px;
 }
 .learn-container {
   margin: 0 auto;

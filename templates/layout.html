@@ -30,19 +30,15 @@
   <body>
 
     <div class="row nav-bar">
-      
-        <div class="col-md-3 logo-navbar">
-            <a class="nav-link" href="/">
-                <div>
-                    <img src="{{ url_for('static', filename='images/logoimage.png') }}" alt="Logo" class="img-fluid logo-navbar-image">
-                    <span class="logo-title">
-                        ccento
-                    </span>
-                </div>
-            </a>
-        </div>
-
-    </div>
+      <div class="col-md-3 logo-navbar">
+          <a class="nav-link" href="/">
+              <div class="logo-container">
+                  <img src="{{ url_for('static', filename='images/logoimage.png') }}" alt="Logo" class="img-fluid logo-navbar-image">
+                  <span class="logo-title">ccento</span>
+              </div>
+          </a>
+      </div>
+  </div>
 
     <div class="container-layout">{% block content %} {% endblock %}</div>
   </body>
