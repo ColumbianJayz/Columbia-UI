@@ -13,8 +13,8 @@ Countries = {
         "countries_id": "1",
         "country": "Colombia",
         "image": "https://upload.wikimedia.org/wikipedia/commons/a/ab/Flag-map_of_Colombia.svg",
-        "audio_1": "Colombia.mp3",
-        # "audio_2": "",
+        "audio_1": "colombiaExamenes.m4a",
+        "audio_2": "ColombiaFiesta.m4a",
         "next_country": "/learn/2",
         "tips": "Colombian Spanish is known for its clear and precise pronunciation of words. Unlike some other Latin American accents, Colombians typically articulate each syllable distinctly."
     },
@@ -23,7 +23,7 @@ Countries = {
         "country": "Venezuela",
         "image": "https://upload.wikimedia.org/wikipedia/commons/8/84/Flag-map_of_Venezuela.svg",
         "audio_1": "venezuelan.mp3",
-        # "audio_2": "",
+        "audio_2": "venezuelan.mp3",
         "next_country": "/learn/3",
         "tips": "Like in many other Spanish-speaking cultures, Venezuelans frequently use diminutives to express affection, make things sound smaller or cuter, or simply as part of everyday speech."
     },
@@ -31,8 +31,8 @@ Countries = {
         "countries_id": "3",
         "country": "Argentina",
         "image": "https://upload.wikimedia.org/wikipedia/commons/7/79/Flag_map_of_Argentina.svg",
-        "audio_1": "argentinan.mp3",
-        # "audio_2": "",
+        "audio_1": "argentinaExamenes.mp3",
+        "audio_2": "argentinaLearning1.mp3",
         "next_country": "/learn/4",
         "tips": "In Argentina, the \'ll\' and \'y\' sounds are often pronounced like the English \'sh\' in \"sheep\" or \"shy.\" This is called yeísmo. For example, \"pollo\" (chicken) may sound like \"po-sho\"."
     },
@@ -40,8 +40,8 @@ Countries = {
         "countries_id": "4",
         "country": "Mexico",
         "image": " https://upload.wikimedia.org/wikipedia/commons/a/aa/Mexico_Flag_Map.svg",
-        "audio_1": "mexico.mp3",
-        # "audio_2": "",
+        "audio_1": "mexicoExamenes.mp3",
+        "audio_2": "mexicoFiesta.mp3",
         "next_country": "/learn/5",
         "tips": "Mexican Spanish tends to have clear and distinct vowel sounds. However, there are regional variations, and in some areas, vowels may be pronounced differently or with a nasal tone."
     },
@@ -50,7 +50,7 @@ Countries = {
         "country": "Puerto Rico",
         "image": " https://upload.wikimedia.org/wikipedia/commons/5/56/PR_flag_island.svg",
         "audio_1": "Puerto Rico.mp3",
-        # "audio_2": "",
+        "audio_2": "Puerto Rico.mp3",
         "next_country": "/learn/6",
         "tips": " In casual speech, especially in rapid conversation, Puerto Ricans often drop the 's' sound at the end of words or syllables. For example, \"gracias\" might sound like \"gracia.\""
     },
@@ -59,7 +59,7 @@ Countries = {
         "country": "El Salvador",
         "image": " https://upload.wikimedia.org/wikipedia/commons/9/99/Flag-map_of_El_Salvador.png",
         "audio_1": "salvadoran.mp3",
-        # "audio_2": "",
+        "audio_2": "salvadoran.mp3",
         "next_country": "/quiz/1",
         "tips": "El Salvador predominantly uses \"vos\" instead of \"tú\" for the informal second-person singular pronoun."
     },
@@ -134,9 +134,10 @@ def explore():
 @app.route('/learn/<countries_id>')
 def learn(countries_id):
     audio_filename = Countries[countries_id]["audio_1"]
+    audio_filename2 = Countries[countries_id]["audio_2"]
     item = Countries.get(countries_id)
     if item:
-        return render_template('learn.html', item=item, audio_filename=audio_filename)
+        return render_template('learn.html', item=item, audio_filename=audio_filename, audio_filename2=audio_filename2)
     else:
         return "Item not found", 404
 

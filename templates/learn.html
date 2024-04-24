@@ -1,31 +1,46 @@
 {% extends "layout.html" %}
 {% block content %}
-<h1 class="country-title col-md-12">{{ item.country }}</h1>
+<div class="col-md-12 header-container">
 
-<div class="col-md-12 container">
-    <div class="col-md-6">
+    <h1 class="country-title col-md-4"></h1>
+    <h1 class="country-title col-md-4">{{ item.country }}</h1>
+    <h2 class="section-tracker col-md-4"><b class="bold-counter">Accent:</b> {{ item.countries_id }} / 6</h2>
+</div>
+
+
+
+<div class="col-md-12 learn-container">
+    <div class="col-md-4 country-image-container">
         <img class='country-image' src='{{ item.image }}' alt='Image relating to the country.'><br>
     </div>
-    <div class="col-md-6 learn-audio-container">
+    <div class="col-md-4 learn-audio-container">
         <audio controls class="audio-button">
             <source src="{{ url_for('static', filename='audio/' + audio_filename) }}" type="audio/mpeg">
             Your browser does not support the audio element.
         </audio>
+        <audio controls class="audio-button">
+            <source src="{{ url_for('static', filename='audio/' + audio_filename2) }}" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+        <div class="tips-container">
+            <p tips-text><b>Good to know: </b>{{item.tips}}</p>
+        </div>
+      
     </div>
+    <h1 class="country-title col-md-4"></h1>
 </div>
-
-<div class="col-md-4 tips-container">
-    <p tips-text><b>Good to know: </b>{{item.tips}}</p>
+    
 </div>
 
 {% if item.countries_id == "6" %}
-    <button class="next-button">
-        <a href="{{item.next_country}}" class="year-text">Take Quiz</a>
-    </button>
+    <a class="btn next-button col-md-4" href="{{item.next_country}}">
+        Take Quiz
+    </a>
+ 
 {% else %}
-    <button class="next-button">
-        <a href="{{item.next_country}}" class="year-text">Next</a>
-    </button>
+<a class="btn next-button col-md-4" href="{{item.next_country}}">
+    Next
+</a>
 {% endif %}
 
 <script>
