@@ -373,20 +373,23 @@
 
 /* MULTIPLE CHOICE IN QUIZ*/
 .option-button {
-  border: 1px solid;
-  width: 50%;
+  border: 1px solid #a278d7; /* more concise border color definition */
+  width: 200px; /* fixed width */
+  height: 240px; /* fixed height, making it taller than it is wide */
   padding: 20px;
+  
   display: block;
   text-align: center;
   background-color: white;
-  margin: 0 auto;
+  margin: 30px auto; /* adjusted margin for spacing and centered alignment */
   border-radius: 10px;
-  border-color: #a278d7;
   color: #a278d7;
   font-weight: bold;
-  font-size: 20px;
-  margin-bottom: 30px;
+  font-size: 25px; /* adjusted font size for better fit within the button */
 }
+
+
+
 .option-button:hover{
   background-color:#a278d7;
 }
