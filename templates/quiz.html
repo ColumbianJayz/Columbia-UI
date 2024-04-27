@@ -1,10 +1,10 @@
 {% extends "layout.html" %} {% block content %}
 
 <div class="col-md-12 header-container-quiz">
-  <h1 class="section-tracker col-md-4"><p> <b class="bold-counter">Accent:</b> {{ current_question_number }} of {{ total_questions }}</p> </h1>
+  <h1 class="section-tracker-quiz col-md-4"><p class="section-tracker-quiz-text"> <b class="bold-counter">Accent:</b> {{ current_question_number }} of {{ total_questions }}</p> </h1>
   <h1 class="edit-h1 col-md-4">Quiz</h1>
-  <div id="score-and-question col-md-4" class="score-and-question">
-  <p><b class="bold-counter">Score:</b>{{ score }} </p>
+  <div class="score-and-question col-md-4">
+  <p class="score-and-question-text"><b class="bold-counter">Score:</b> {{ score }} </p>
   </div>
 </div>
 <div class="row quiz-container">
@@ -43,24 +43,24 @@
     <p class="no-quiz-data">No quiz data found.</p>
   {% endif %}
 </div>
+
 <div class="col-md-6 next-and-submit-container">
   <div class="feedback-and-next">
     <button
       data-url="{{ url_for('quiz', quiz_id=quiz_id) }}"
       id="submit-answer"
-      class="next-button-style btn btn-primary"
+      class="next-button-style-submit btn"
       disabled
     >
       Submit
     </button>
     <button
     id="next-question"
-    class="next-button-style btn btn-primary"
+    class="next-button-style-next btn"
     disabled
   >
     Next
   </button>
-    <div id="feedback-container"></div>
   </div>
   
   <input type="hidden" name="answer" id="selectedAnswer" />
@@ -68,6 +68,7 @@
   <input type="hidden" name="score" value="{{ score }}" />
   <div id="quiz-id" data-quiz-id="{{ quiz_id }}"></div>
   </div>
+  <div id="feedback-container"></div>
 </div>
 
 <script src="{{ url_for('static', filename='js/quiz.js') }}"></script>

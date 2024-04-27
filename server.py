@@ -22,8 +22,8 @@ Countries = {
         "countries_id": "2",
         "country": "Venezuela",
         "image": "https://upload.wikimedia.org/wikipedia/commons/8/84/Flag-map_of_Venezuela.svg",
-        "audio_1": "venezuelan.mp3",
-        "audio_2": "venezuelan.mp3",
+        "audio_1": "VenezuelaExamanes.m4a",
+        "audio_2": "VenezuelaFiesta.m4a",
         "next_country": "/learn/3",
         "tips": "Like in many other Spanish-speaking cultures, Venezuelans frequently use diminutives to express affection, make things sound smaller or cuter, or simply as part of everyday speech."
     },
@@ -69,7 +69,7 @@ quiz_id = 6
 quiz_questions = {
     "1": {
         "quiz_id": "1",
-        "audio_quiz": "venezuelan.mp3",
+        "audio_quiz": "venezuela carro.m4a",
         "options": ["Colombia 🇨🇴", "Venezuela 🇻🇪", "Argentina 🇦🇷", "Mexico 🇲🇽"],
         "answer": "Venezuela 🇻🇪",
         "next_question": "2",
@@ -77,7 +77,7 @@ quiz_questions = {
     },
     "2": {
         "quiz_id": "2",
-        "audio_quiz": "argentinan.mp3",
+        "audio_quiz": "argentinaAuto.mp3",
         "options": ["Venezuela 🇻🇪", "Argentina 🇦🇷", "Mexico 🇲🇽", "Puerto Rico 🇵🇷"],
         "answer": "Argentina 🇦🇷",
         "next_question": "3",
@@ -85,7 +85,7 @@ quiz_questions = {
     },
     "3": {
         "quiz_id": "3",
-        "audio_quiz": "Colombia.mp3",
+        "audio_quiz": "colombiaCarro.mp3",
         "options": ["Argentina 🇦🇷", "Colombia 🇨🇴", "Puerto Rico 🇵🇷", "El Salvador 🇸🇻"],
         "answer": "Colombia 🇨🇴",
         "next_question": "4",

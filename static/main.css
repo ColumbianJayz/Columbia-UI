@@ -287,8 +287,25 @@
   margin-top: 50px;
   margin-left: 265px;  /* This will center the button inside its container */
 }
+.section-tracker-quiz{
+  margin-top:15px; 
+  color: rgb(53, 182, 222);
+  font-size: 25px;
+  text-align: center;
+}
+.section-tracker-quiz-text{
+  margin-top: 35px;
+  padding-right: 60px;
+}
+.score-and-question{
 
-
+}
+.score-and-question-text{
+  margin-top:35px; 
+  color: rgb(53, 182, 222);
+  font-size: 25px;
+  text-align: center;
+}
 
 .score-and-question {
   display: flex;
@@ -302,14 +319,26 @@
 }
 
 /* BOTTOM CONTAINER W NEXT AND FEEDBACK*/
-.next-button-style {
+.next-button-style-submit {
   padding: 20px 150px;  /* Change size of the button */
-  color:var(--our-purple);  /* Text color */
-  background-color: white;
-  border-radius: 5px;  /* Rounded corners */
+  color: white;  /* Text color */
+  background-color:#a278d7;
+  border-radius: 15px;
   border-color: var(--our-purple);
   margin-top: 80px;
   margin-left: 30px;
+  font-weight: bold;
+}
+.next-button-style-next{
+  padding: 20px 150px;  /* Change size of the button */
+  color: white;  /* Text color */
+  background-color:#a278d7;
+  border-radius: 15px;
+  border-color: var(--our-purple);
+  margin-top: 80px;
+  margin-left: 30px;
+  font-weight: bold;
+
 }
 .next-and-submit-container{
   text-align: center;
