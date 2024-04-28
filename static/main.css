@@ -400,15 +400,12 @@
 .score-box{
     width: 60%;
     height: 600px;
-    border-top-left-radius: 12%;
-    border-top-right-radius: 12%;
-    border-bottom-left-radius: 5%;
-    border-bottom-right-radius: 5%;
+    border-radius: 20px;
     border: 1px;
-    padding: 15px;
+    padding: 20px;
     display: block;
     text-align: center;
-    background-color: rgb(227, 219, 219);
+    background-color: lightgrey;
 }
 
 .score-image-pass{
@@ -445,6 +442,7 @@
     display: block;
     text-align: center;
     background-color: #a278d7;
+    
 }
 
 .restart-exit-title{
