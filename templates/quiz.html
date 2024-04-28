@@ -4,7 +4,7 @@
   <h1 class="section-tracker col-md-4"><p> <b class="bold-counter">Accent:</b> {{ current_question_number }} of {{ total_questions }}</p> </h1>
   <h1 class="edit-h1 col-md-4">Quiz</h1>
   <div id="score-and-question col-md-4" class="score-and-question">
-  <p><b class="bold-counter">Score:</b>{{ score }} </p>
+  <p><b class=" score-box-quiz bold-counter">Score: {{ score }} </b></p>
   </div>
 </div>
 <div class="row quiz-container">
@@ -60,9 +60,8 @@
   >
     Next
   </button>
-    <div id="feedback-container"></div>
-  </div>
-  
+
+</div>
   <input type="hidden" name="answer" id="selectedAnswer" />
   <input type="hidden" name="attempts" value="{{ attempts }}" />
   <input type="hidden" name="score" value="{{ score }}" />
