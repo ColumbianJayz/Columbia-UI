@@ -6,7 +6,7 @@
     <!-- First Row: Title and Score Info -->
     <div class="row">
         <div class="col-md-12">
-            <h1 class="edit-h1">Where am I from? ✨</h1>
+            <h1 class="what-country">What Country am I from? ✨</h1>
             <div class="text-right">
                 <small>Question {{ current_question_number }} of {{ total_questions }} Score: {{ score }}</small>
             </div>
@@ -17,14 +17,19 @@
     <div class="row">
         <div class="col-md-3 q-audio-and-image-formatting">
             {% if item.audio_quiz %}
+            <!-- First Audio Element -->
             <audio controls class="quiz-audio-button mb-2">
                 <source src="{{ url_for('static', filename='audio/' + item.audio_quiz) }}" type="audio/mpeg">
                 Your browser does not support the audio element.
             </audio>
+            <p class="audio-label">Example 1</p> <!-- Label for the first audio -->
+
+            <!-- Second Audio Element -->
             <audio controls class="quiz-audio-button">
                 <source src="{{ url_for('static', filename='audio/' + item.audio_quiz) }}" type="audio/mpeg">
                 Your browser does not support the audio element.
             </audio>
+            <p class="audio-label">Example 2</p> <!-- Label for the second audio -->
             {% endif %}
         </div>
         <div class="col-md-9">
@@ -37,7 +42,7 @@
                     {% endfor %}
                 </div>
                 <!-- Submit Button for checking answers -->
-                <button type="submit" name="check_answer" class="btn btn-info mt-3">Submit Answer</button>
+                <button type="submit" name="check_answer" class="btn btn-info submit-button ">Submit Answer</button>
                 <input type="hidden" name="selectedAnswer" id="selectedAnswer">
                 <input type="hidden" name="attempts" value="{{ attempts }}">
                 <input type="hidden" name="score" value="{{ score }}">
@@ -49,7 +54,7 @@
     <div class="row">
         <div class="col-md-12 text-center">
             <form action="{{ url_for('quiz', quiz_id=quiz_id) }}" method="post">
-                <button id="submit-answer" name="next_question" class="next-button-style btn btn-primary mt-3">Next Question</button>
+                <button id="submit-answer" name="next_question" class="next-button-style btn btn-primary mt-3"> Continue</button>
                 {% if feedback %}
                 <div id="feedback-container" class="alert alert-info feedback-style mx-auto mt-2">
                     {{ feedback }}
