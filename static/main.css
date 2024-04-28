@@ -4,6 +4,9 @@
   --our-purple: #a278d7; /* Define your purple color as a variable */
   --correct-green: #78d7a1;
   --wrong-red: #df7584;
+  --submit-blue: rgb(99, 157, 239);
+
+
   
 
 }
@@ -262,6 +265,13 @@
   padding:40px;
 }
 /* Quiz Page */
+.what-country{
+  
+  font-style: comfortaa;
+  text-align: center;
+  font-size: 60px;
+  margin-bottom: 30px;
+}
 
 .edit-h1{
   text-align: center;
@@ -339,8 +349,23 @@
   margin-top: 50px;
   margin-left: 265px;  /* This will center the button inside its container */
 }
+.section-tracker-quiz{
+  margin-top:15px; 
+  color: rgb(53, 182, 222);
+  font-size: 25px;
+  text-align: center;
+}
+.section-tracker-quiz-text{
+  margin-top: 35px;
+  padding-right: 60px;
+}
 
-
+.score-and-question-text{
+  margin-top:35px; 
+  color: rgb(53, 182, 222);
+  font-size: 25px;
+  text-align: center;
+}
 
 .score-and-question {
   display: flex;
@@ -353,6 +378,7 @@
   margin-right: 10px;
 }
 
+<<<<<<< HEAD
 /* BOTTOM CONTAINER W NEXT AND FEEDBACK*/
 .next-button-style {
   width: 20%;
@@ -367,13 +393,39 @@
   border-radius: 15px;
   position: relative; /* Required for positioning pseudo-elements */
   overflow: hidden; /* Ensures no overflow outside the border-radius */
+=======
+/* Submit BOTTOM */
+.submit-button {
+  width: 25%;            /* Set the width of the button to 50% of its container */
+  padding: 15px 0;       /* Add padding for better height and comfort */
+  font-size: 20px;       /* Larger font size for better visibility */
+
+  
+  margin: 20px auto;  
+  margin-top: 50px;
+    
+  display: block;       /* Ensure the button is a block element to take full width specified */
+  
+  background-color: var(--submit-blue);
+  font-weight: bold;
+>>>>>>> ae22136ab1ba9a253cc988716c8e520ad6975a8c
 }
-.next-and-submit-container{
+
+/* Next Button*/
+.next-button-style {
+  border: 1px solid;
+  width: 15%;
+  padding: 15px;
+  display: block;
   text-align: center;
-  margin: 0 auto;
-  margin-top: -50px;
-  margin-right: 200px;
+  background-color: #a278d7;
+  margin: 0 0 0 auto;  /* Adjusts the margin to auto on the left side, pushing the button to the right */
+  border-radius: 10px;
+  border-color: #a278d7;
+  color: white;
+  font-weight: bold;
 }
+
 .feedback-and-next{
   display: flex;
   padding-bottom: 30px;
@@ -399,20 +451,29 @@
 
 /* MULTIPLE CHOICE IN QUIZ*/
 .option-button {
-  border: 1px solid;
-  width: 50%;
+  border: 1px solid #a278d7; /* more concise border color definition */
+  width: 200px; /* fixed width */
+  height: 240px; /* fixed height, making it taller than it is wide */
   padding: 20px;
+  
   display: block;
   text-align: center;
   background-color: white;
+<<<<<<< HEAD
   margin: 0 auto;
   border-radius: 15px;
   border-color: #a278d7;
+=======
+  margin: 30px auto; /* adjusted margin for spacing and centered alignment */
+  border-radius: 10px;
+>>>>>>> ae22136ab1ba9a253cc988716c8e520ad6975a8c
   color: #a278d7;
   font-weight: bold;
-  font-size: 20px;
-  margin-bottom: 30px;
+  font-size: 25px; /* adjusted font size for better fit within the button */
 }
+
+
+
 .option-button:hover{
   background-color:#a278d7;
 }

@@ -22,8 +22,8 @@ Countries = {
         "countries_id": "2",
         "country": "Venezuela",
         "image": "https://upload.wikimedia.org/wikipedia/commons/8/84/Flag-map_of_Venezuela.svg",
-        "audio_1": "venezuelan.mp3",
-        "audio_2": "venezuelan.mp3",
+        "audio_1": "VenezuelaExamanes.m4a",
+        "audio_2": "VenezuelaFiesta.m4a",
         "next_country": "/learn/3",
         "tips": "Like in many other Spanish-speaking cultures, Venezuelans frequently use diminutives to express affection, make things sound smaller or cuter, or simply as part of everyday speech."
     },
@@ -69,7 +69,7 @@ quiz_id = 6
 quiz_questions = {
     "1": {
         "quiz_id": "1",
-        "audio_quiz": "venezuelan.mp3",
+        "audio_quiz": "venezuela carro.m4a",
         "options": ["Colombia 🇨🇴", "Venezuela 🇻🇪", "Argentina 🇦🇷", "Mexico 🇲🇽"],
         "answer": "Venezuela 🇻🇪",
         "next_question": "2",
@@ -77,7 +77,7 @@ quiz_questions = {
     },
     "2": {
         "quiz_id": "2",
-        "audio_quiz": "argentinan.mp3",
+        "audio_quiz": "argentinaAuto.mp3",
         "options": ["Venezuela 🇻🇪", "Argentina 🇦🇷", "Mexico 🇲🇽", "Puerto Rico 🇵🇷"],
         "answer": "Argentina 🇦🇷",
         "next_question": "3",
@@ -85,7 +85,7 @@ quiz_questions = {
     },
     "3": {
         "quiz_id": "3",
-        "audio_quiz": "Colombia.mp3",
+        "audio_quiz": "colombiaCarro.mp3",
         "options": ["Argentina 🇦🇷", "Colombia 🇨🇴", "Puerto Rico 🇵🇷", "El Salvador 🇸🇻"],
         "answer": "Colombia 🇨🇴",
         "next_question": "4",
@@ -144,48 +144,31 @@ def learn(countries_id):
 
 @app.route('/quiz/<quiz_id>', methods=['GET', 'POST'])
 def quiz(quiz_id):
-    global current_score
     audio_filename = quiz_questions[quiz_id]["audio_quiz"]
     current_question_number = list(quiz_questions.keys()).index(quiz_id) + 1
+    total_questions = len(quiz_questions)
     item = quiz_questions.get(quiz_id)
-    total_questions=len(quiz_questions)
 
     if request.method == 'POST':
-        data = request.get_json()
-        selected_option = data['option']
-        attempts = data['attempts']
-        score = data['score']
-        current_answer = item['answer']
+        if 'check_answer' in request.form:  # Check if it's an answer submission
+            user_answer = request.form.get('selectedAnswer')
+            attempts = int(request.form.get('attempts', 0)) + 1
+            score = int(request.form.get('score', 0))
+            correct_answer = quiz_questions[quiz_id]['answer']
+            was_correct = (user_answer == correct_answer)
 
-
-        if selected_option == item['answer']:
-            feedback = "Correct!"
-            feedback_class = "correct-feedback"
-            current_score += 1  # Increment score
-        else:
-            feedback_class = "incorrect-feedback"
-            if attempts == 0:
-                feedback = "Incorrect! Try again."
-                attempts += 1
-            else:
-                feedback = f"Incorrect! The correct answer was {current_answer}."
-                attempts += 1
-
-        return jsonify({
-            'feedback': feedback,
-            'feedback_class': feedback_class,
-            'score': current_score,
-            'attempts': attempts,
-            'current_question_number': current_question_number,
-            'total_questions': total_questions
-        })
-
-    return render_template('quiz.html', item=item, quiz_id=quiz_id, feedback=None,
-                           feedback_class=None, attempts=0,
-                           score=current_score, audio_filename=audio_filename,
-                           current_question_number=current_question_number,  # Update accordingly
-                           total_questions=len(quiz_questions))
-
+            feedback_class = "correct-feedback" if was_correct else "incorrect-feedback"
+            feedback = "Correct! Well done." if was_correct else "Incorrect! Try again." if attempts < 2 else f"Incorrect! The correct answer was {correct_answer}."
+            score += 1 if was_correct else 0
+            
+            return render_template('quiz.html', item=item, quiz_id=quiz_id, feedback=feedback, feedback_class=feedback_class, attempts=attempts, score=score, was_correct=was_correct, audio_filename=audio_filename, current_question_number=current_question_number, total_questions=total_questions)
+        
+        elif 'next_question' in request.form:  # Handle moving to next question
+            next_id = quiz_questions[quiz_id]['next_question']
+            item = quiz_questions.get(next_id)
+            return render_template('quiz.html', item=item, quiz_id=next_id, feedback=None, feedback_class=None, attempts=0, score=request.form.get('score', 0), was_correct=None, audio_filename=audio_filename, current_question_number=current_question_number + 1, total_questions=total_questions)
+    else:
+        return render_template('quiz.html', item=item, quiz_id=quiz_id, feedback=None, feedback_class=None, attempts=0, score=0, was_correct=None, audio_filename=audio_filename, current_question_number=current_question_number, total_questions=total_questions)
 
 
 @app.route('/audio/<path:filename>')
