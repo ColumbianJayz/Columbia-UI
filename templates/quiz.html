@@ -9,7 +9,7 @@
         <div class="col-md-12 score-and-accent-tracker">
             <div class="question-track col-md-6">
                 <p class="question-track-mover">
-                    <b>Accent</b>: {{ current_question_number }}/{{ total_questions }}
+                    <b>Question</b>: {{ current_question_number }}/{{ total_questions }}
 
                 </p>
             </div>
@@ -63,18 +63,13 @@
             <input type="hidden" name="attempts" value="{{ attempts }}">
             <input type="hidden" name="score" value="{{ score }}">
             <div id="quiz-id" data-quiz-id="{{ quiz_id }}"></div>
-            <button id="next-question" disabled> Continue</button>
-            {% if feedback %}
-            <div id="feedback-container" class="alert alert-info feedback-style mx-auto mt-2">
-                {{ feedback }}
+            <button id="next-question" class="next-style-button" disabled> Continue</button>
+            <div class="feedbackbox">    
             </div>
-            {% endif %}</div>
             <input type="hidden" name="score" value="{{ score }}">
             {% else %}
             <p class="no-quiz-data">No quiz data found.</p>
             {% endif %}
-
-
         </div>
       
 

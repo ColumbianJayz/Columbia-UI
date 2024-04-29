@@ -5,7 +5,7 @@ $(document).ready(function() {
         $(this).addClass('active');
         $('#selectedAnswer').val($(this).text().trim());
         $('#submit-answer').prop('disabled', false);
-        
+
     });
 
     $('#submit-answer').click(function(){
@@ -33,11 +33,11 @@ $(document).ready(function() {
 
                 var feedbackContainer = $('<div>', {
                     id: 'feedback-container',
-                    class: 'alert alert-info feedback-style ' + response.feedback_class,
+                    class: 'feedback-style mx-auto mt-2 ' + response.feedback_class,
                     text: response.feedback
                 });
             
-                $('.feedback-and-next').prepend(feedbackContainer);
+                $('.feedbackbox').prepend(feedbackContainer);
 
                 $('input[name="attempts"]').val(response.attempts);
                 console.log("Updated attempts in hidden input:", $('input[name="attempts"]').val());
@@ -50,6 +50,7 @@ $(document).ready(function() {
                 if (response.attempts >= 2) {
                     $('#next-question').prop('disabled', false);
                     $('.option-button').prop('disabled', true);
+
                 }
                 $('#submit-answer').prop('disabled', true);
             },

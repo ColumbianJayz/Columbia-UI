@@ -2,8 +2,8 @@
 
 :root {
   --our-purple: #a278d7; /* Define your purple color as a variable */
-  --correct-green: #78d7a1;
-  --wrong-red: #df7584;
+  --correct-green: #28b163;
+  --wrong-red: #ed334c;
   --submit-blue: rgb(99, 157, 239);
 
 
@@ -486,6 +486,18 @@
   cursor: not-allowed;
    
 }
+.next-button-style {
+  border: 1px solid;
+  width: 15%;
+  padding: 15px;
+  display: block;
+  text-align: center;
+  background-color: #26b928;
+  margin: 0 0 0 auto;  /* Adjusts the margin to auto on the left side, pushing the button to the right */
+  border-radius: 15px;
+  color: white;
+  font-weight: bold;
+}
 
 /* Next Button*/
 .next-button-style:hover{
@@ -509,16 +521,22 @@
 
 /* Feedback directly below the Next button */
 .feedback-style {
+  position: absolute;
   margin-top: 10px;  /* Space above the feedback message */
-  width: 100%;  /* Feedback takes full width of its container */
+  width: 100%;
+  height: 235px;
+  color:white;
+  font-size: 20px;
+  font-weight: bolder;
 }
 
 .correct-feedback {
-  background-color: var( --correct-green);  /* Color for correct answers */
+  background-color: #30d879c3;  /* Color for correct answers */
 }
 
 .incorrect-feedback {
-  background-color: var( --wrong-red);  /* Color for incorrect answers */
+  background-color: #ff0022a8;  /* Color for incorrect answers */
+
 }
 
 /* MULTIPLE CHOICE IN QUIZ*/
