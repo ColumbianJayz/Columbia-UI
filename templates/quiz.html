@@ -4,13 +4,16 @@
 <div id="quiz-container">
     {% if item %}
     <!-- First Row: Title and Score Info -->
+    <div class="what-country edit-h1 col-md-12">What country is this accent from?</div>
     <div class="row">
-        <div class="col-md-12">
-            <div class="what-country edit-h1">What country is this accent from?</div>
-            <div class="question-track">
-                {{ current_question_number }}/{{ total_questions }}            
+        <div class="col-md-12 score-and-accent-tracker">
+            <div class="question-track col-md-6">
+                <p class="question-track-mover">
+                    <b>Accent</b>: {{ current_question_number }}/{{ total_questions }}
+
+                </p>
             </div>
-            <div class="score-box-align">
+            <div class="score-box-align col-md-6">
                 <div class="score-container">
                     Score: {{ score }}
                 </div>
@@ -48,32 +51,37 @@
                     </button>
                     {% endfor %}
                 </div>
-                <!-- Submit Button for checking answers -->
-                <button id="submit-answer" data-url="{{ url_for('quiz', quiz_id=quiz_id) }}" class="submit-button "disabled>Submit Answer</button>
-        </div>
+               
     </div>
-    <input type="hidden" name="selectedAnswer" id="selectedAnswer">
-    <input type="hidden" name="attempts" value="{{ attempts }}">
-    <input type="hidden" name="score" value="{{ score }}">
-    <div id="quiz-id" data-quiz-id="{{ quiz_id }}"></div>
-
     <!-- Third Row: Next Button and Feedback -->
-    <div class="row">
-        <div class="col-md-12 text-center">
-                <button id="next-question" class="next-button-style btn btn-primary mt-3" disabled> Continue</button>
-                {% if feedback %}
-                <div id="feedback-container" class="alert alert-info feedback-style mx-auto mt-2">
-                    {{ feedback }}
-                </div>
-                {% endif %}
-        </div>
-    </div>
-    <input type="hidden" name="score" value="{{ score }}">
 
-    {% else %}
-    <p class="no-quiz-data">No quiz data found.</p>
-    {% endif %}
+    <div class="col-md-12 button-rows">
+         <!-- Submit Button for checking answers -->
+        <div col-md-8 class="button-test">
+            <button id="submit-answer" data-url="{{ url_for('quiz', quiz_id=quiz_id) }}" class="submit-button "disabled>Submit Answer</button>
+            <input type="hidden" name="selectedAnswer" id="selectedAnswer">
+            <input type="hidden" name="attempts" value="{{ attempts }}">
+            <input type="hidden" name="score" value="{{ score }}">
+            <div id="quiz-id" data-quiz-id="{{ quiz_id }}"></div>
+            <button id="next-question" disabled> Continue</button>
+            {% if feedback %}
+            <div id="feedback-container" class="alert alert-info feedback-style mx-auto mt-2">
+                {{ feedback }}
+            </div>
+            {% endif %}</div>
+            <input type="hidden" name="score" value="{{ score }}">
+            {% else %}
+            <p class="no-quiz-data">No quiz data found.</p>
+            {% endif %}
+
+
+        </div>
+      
+
+
+    </div>
 </div>
+
 
 <script src="{{ url_for('static', filename='js/quiz.js') }}"></script>
 
