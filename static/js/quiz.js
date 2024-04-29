@@ -5,6 +5,7 @@ $(document).ready(function() {
         $(this).addClass('active');
         $('#selectedAnswer').val($(this).text().trim());
         $('#submit-answer').prop('disabled', false);
+        
     });
 
     $('#submit-answer').click(function(){
