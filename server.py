@@ -32,7 +32,7 @@ Countries = {
         "country": "Argentina",
         "image": "https://upload.wikimedia.org/wikipedia/commons/7/79/Flag_map_of_Argentina.svg",
         "audio_1": "argentinaExamenes.mp3",
-        "audio_2": "argentinaLearning1.mp3",
+        "audio_2": "ArgentinaFiesta.mp3",
         "next_country": "/learn/4",
         "tips": "In Argentina, the \'ll\' and \'y\' sounds are often pronounced like the English \'sh\' in \"sheep\" or \"shy.\" This is called yeísmo. For example, \"pollo\" (chicken) may sound like \"po-sho\"."
     },
@@ -49,8 +49,8 @@ Countries = {
         "countries_id": "5",
         "country": "Puerto Rico",
         "image": " https://upload.wikimedia.org/wikipedia/commons/5/56/PR_flag_island.svg",
-        "audio_1": "Puerto Rico.mp3",
-        "audio_2": "Puerto Rico.mp3",
+        "audio_1": "PuertoRicoExamenes.mp3",
+        "audio_2": "PuertoRicoFiesta.mp3",
         "next_country": "/learn/6",
         "tips": " In casual speech, especially in rapid conversation, Puerto Ricans often drop the 's' sound at the end of words or syllables. For example, \"gracias\" might sound like \"gracia.\""
     },
@@ -58,8 +58,8 @@ Countries = {
         "countries_id": "6",
         "country": "El Salvador",
         "image": " https://upload.wikimedia.org/wikipedia/commons/9/99/Flag-map_of_El_Salvador.png",
-        "audio_1": "salvadoran.mp3",
-        "audio_2": "salvadoran.mp3",
+        "audio_1": "ElSalvadorExamenes.m4a",
+        "audio_2": "ElSalvadorFiesta.m4a",
         "next_country": "/quiz/1",
         "tips": "El Salvador predominantly uses \"vos\" instead of \"tú\" for the informal second-person singular pronoun."
     },
@@ -70,6 +70,7 @@ quiz_questions = {
     "1": {
         "quiz_id": "1",
         "audio_quiz": "venezuela carro.m4a",
+        "audio_quiz_2": "venezuelan.mp3",
         "options": ["Colombia 🇨🇴", "Venezuela 🇻🇪", "Argentina 🇦🇷", "Mexico 🇲🇽"],
         "answer": "Venezuela 🇻🇪",
         "next_question": "2",
@@ -78,6 +79,7 @@ quiz_questions = {
     "2": {
         "quiz_id": "2",
         "audio_quiz": "argentinaAuto.mp3",
+        "audio_quiz_2": "ArgentinaFiesta.mp3",
         "options": ["Venezuela 🇻🇪", "Argentina 🇦🇷", "Mexico 🇲🇽", "Puerto Rico 🇵🇷"],
         "answer": "Argentina 🇦🇷",
         "next_question": "3",
@@ -86,6 +88,7 @@ quiz_questions = {
     "3": {
         "quiz_id": "3",
         "audio_quiz": "colombiaCarro.mp3",
+        "audio_quiz_2": "ColombiaFiesta.m4a",
         "options": ["Argentina 🇦🇷", "Colombia 🇨🇴", "Puerto Rico 🇵🇷", "El Salvador 🇸🇻"],
         "answer": "Colombia 🇨🇴",
         "next_question": "4",
@@ -93,7 +96,8 @@ quiz_questions = {
     },
     "4": {
         "quiz_id": "4",
-        "audio_quiz": "salvadoran.mp3",
+        "audio_quiz": "ElSalvadorExamenes.m4a",
+        "audio_quiz_2": "ElSalvadorFiesta.m4a",
         "options": ["Mexico 🇲🇽", "Puerto Rico 🇵🇷", "El Salvador 🇸🇻", "Colombia 🇨🇴"],
         "answer": "El Salvador 🇸🇻",
         "next_question": "5",
@@ -102,6 +106,7 @@ quiz_questions = {
     "5": {
         "quiz_id": "5",
         "audio_quiz": "mexico.mp3",
+        "audio_quiz_2": "mexicoFiesta.mp3",
         "options": ["Puerto Rico 🇵🇷", "El Salvador 🇸🇻", "Mexico 🇲🇽", "Venezuela 🇻🇪"],
         "answer": "Mexico 🇲🇽",
         "next_question": "6",
@@ -110,6 +115,7 @@ quiz_questions = {
     "6": {
         "quiz_id": "6",
         "audio_quiz": "Puerto Rico.mp3",
+        "audio_quiz_2": "PuertoRicoFiesta.mp3",
         "options": ["El Salvador 🇸🇻", "Colombia 🇨🇴", "Puerto Rico 🇵🇷", "Argentina 🇦🇷"],
         "answer": "Puerto Rico 🇵🇷",
         "next_question": "end",
@@ -146,6 +152,7 @@ def learn(countries_id):
 def quiz(quiz_id):
     global current_score
     audio_filename = quiz_questions[quiz_id]["audio_quiz"]
+    audio_filename2 = quiz_questions[quiz_id]["audio_quiz_2"]
     current_question_number = list(quiz_questions.keys()).index(quiz_id) + 1
     total_questions = len(quiz_questions)
     item = quiz_questions.get(quiz_id)
@@ -183,7 +190,7 @@ def quiz(quiz_id):
 
     return render_template('quiz.html', item=item, quiz_id=quiz_id, feedback=None,
                            feedback_class=None, attempts=0,
-                           score=current_score, audio_filename=audio_filename,
+                           score=current_score, audio_filename=audio_filename, audio_filename2 =audio_filename2,
                            current_question_number=current_question_number,  # Update accordingly
                            total_questions=len(quiz_questions))
 
