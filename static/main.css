@@ -199,7 +199,7 @@
   bottom: 0px; /* Adjust as needed for 'thickness' */
   left: 0;
   width: 100%;
-  height: 6px; /* Thickness of the bottom border */
+  height: 5px; /* Thickness of the bottom border */
   background-color: #7839c5; /* Darker purple for 3D effect */
   border-radius: 0 0 15px 15px; /* Follows the border-radius of the button */
 }
@@ -215,7 +215,7 @@
 
 .explore-quiz-button:active {
   box-shadow: none;
-  top: 3px; 
+  top: 2px; 
   background-color: #a278d7; 
 }
 
@@ -243,6 +243,7 @@
   background-color: white;
   color: #a278d7;
 }
+.nedx
 .next-button-text{
   color: white;
   font-weight: bold;
@@ -294,11 +295,11 @@
 /* Quiz Page */
 
 .what-country{
-  
   font-style: comfortaa;
   text-align: center;
   font-size: 60px;
   margin-bottom: 30px;
+  margin-top: 15px;
 }
 
 .edit-h1{
@@ -316,20 +317,33 @@
 .header-container-quiz{
   display: flex;
 }
-
 .quiz_container {
   margin-top: 50px;
   display: flex;
   text-align: center;
 }
+.score-and-accent-tracker{
+  display: flex;
+
+}
 
 .question-track{
-  padding-left: 90%;
   padding-bottom: 10px;
   font-size: 25px;
   font-weight: bolder;
+
+  color: rgb(53, 182, 222);
+  font-size: 25px;
   
 }
+.question-track-mover{
+  padding-left: 150px;
+  width: 50%;
+  display: flex;
+  padding-top: 20px;
+
+}
+
 
 .option-top-margin{
   margin-top: 40px;
@@ -369,11 +383,6 @@
     margin-top: 20px;
 }
 
-.score-box-align{
-  padding-left: 79%;
-  padding-bottom: 10px;
-}
-
 .score-container {
   border: 2px solid  #a278d7;
   width: 105px;
@@ -382,6 +391,9 @@
   font-weight: bold;
   border-radius: 10px;
   padding: 5px;
+  margin-left: 490px;
+  margin-top: 15px;
+  
 }
 
 .btn-center {
@@ -416,7 +428,34 @@
 .score-and-question {
   margin-right: 10px;
 }
+.text-center{
+  display: flex;
+}
+.button-rows{
+  display: flex;
+}
+#next-question{
+  width: 25%;            /* Set the width of the button to 50% of its container */
+  padding: 15px;       /* Add padding for better height and comfort */
+  font-size: 20px;       /* Larger font size for better visibility */
+  background-color: #a278d7;
+  border-radius: 15px;
+  margin: 20px auto;  
+  margin-top: 50px;
+  color:white;
+  border: #a278d7;
+  width: 40%;
+  display: block;       /* Ensure the button is a block element to take full width specified */
+  
+  font-weight: bold;
 
+}
+.button-test{
+  display: flex;
+  margin: 0 auto;
+  width: 50%;
+  margin-left: 600px;
+}
 /* Submit BOTTOM */
 .submit-button {
   width: 25%;            /* Set the width of the button to 50% of its container */
@@ -428,6 +467,7 @@
   margin-top: 50px;
   color:white;
   border: #a278d7;
+  width: 40%;
     
   display: block;       /* Ensure the button is a block element to take full width specified */
   
@@ -446,8 +486,6 @@
   cursor: not-allowed;
    
 }
-
-/* Next Button*/
 .next-button-style {
   border: 1px solid;
   width: 15%;
@@ -460,6 +498,8 @@
   color: white;
   font-weight: bold;
 }
+
+/* Next Button*/
 .next-button-style:hover{
   background-color:#41d841;
   border: #a278d7;
@@ -533,15 +573,12 @@
 .score-box{
     width: 60%;
     height: 600px;
-    border-top-left-radius: 12%;
-    border-top-right-radius: 12%;
-    border-bottom-left-radius: 5%;
-    border-bottom-right-radius: 5%;
+    border-radius: 20px;
     border: 1px;
-    padding: 15px;
+    padding: 20px;
     display: block;
     text-align: center;
-    background-color: rgb(227, 219, 219);
+    background-color: lightgrey;
 }
 
 .score-image-pass{
@@ -578,6 +615,7 @@
     display: block;
     text-align: center;
     background-color: #a278d7;
+    
 }
 
 .restart-exit-title{
