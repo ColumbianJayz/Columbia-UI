@@ -103,10 +103,10 @@
 /* Explore Page */
 .hola{
   padding-bottom: 30px;
-  margin-top: -20px;
+  margin-top: 20px;
 }
 .explore-page{
-    margin-bottom: 50px;
+    margin-bottom: 55px;
 }
 
 .explore-title {
@@ -120,21 +120,48 @@
 
 .explore-all-button{
     width: 30%;
-    border: 1px solid #a278d7;
+    border: transparent;
     padding: 10px;
     display: block;
     text-align: center;
     font-size: 40px;
     font-weight: bold;
-    color: #a278d7;
+    color: white;
+    background-color: #a278d7;
     border-radius: 15px;
     font-size: 30px;
     font-weight: bold;
+    position: relative; /* Required for positioning pseudo-elements */
+    overflow: hidden; /* Ensures no overflow outside the border-radius */
 }
+
+.explore-all-button::after {
+  content: "";
+  position: absolute;
+  bottom: 0px; 
+  left: 0;
+  width: 100%;
+  height: 6px; 
+  background-color: #7839c5; 
+  border-radius: 0 0 15px 15px;
+}
+
+.explore-all-button:active {
+  box-shadow: none;
+  top: 3px; 
+  background-color: #a278d7; 
+}
+
+.explore-all-button:active::after {
+  height: 0;
+  background-color: transparent; 
+}
+
 .explore-all-button:hover{
-  background-color: #a278d7;
-  color: white;
+  background-color:#b896e3;
+  color:white;
 }
+
 
 .explore-country-button{
     width: 300px;
@@ -153,9 +180,9 @@
   color: white;
 }
 .explore-quiz-button {
-  width: 20%;
+  width: 10%;
   border: transparent; 
-  padding: 20px;
+  padding: 15px;
   display: block;
   background-color: #a278d7;
   text-align: center;
@@ -265,6 +292,7 @@
   padding:40px;
 }
 /* Quiz Page */
+
 .what-country{
   
   font-style: comfortaa;
@@ -295,6 +323,14 @@
   text-align: center;
 }
 
+.question-track{
+  padding-left: 90%;
+  padding-bottom: 10px;
+  font-size: 25px;
+  font-weight: bolder;
+  
+}
+
 .option-top-margin{
   margin-top: 40px;
 }
@@ -312,9 +348,6 @@
   margin-left: 95px;
   margin-top: 50px;
 }
-
-
-
 
 .audio-link-right-shift {
   padding-left: 20px;  /* Or any other value that suits your layout */
@@ -336,13 +369,19 @@
     margin-top: 20px;
 }
 
-
+.score-box-align{
+  padding-left: 79%;
+  padding-bottom: 10px;
+}
 
 .score-container {
-  text-align: right;
-  padding-right: 20px;
+  border: 2px solid  #a278d7;
+  width: 105px;
+  text-align: center;
   font-size: 20px;
   font-weight: bold;
+  border-radius: 10px;
+  padding: 5px;
 }
 
 .btn-center {
@@ -374,41 +413,38 @@
   font-size: 16px;
   font-weight: bold;
 }
-.score-and-question > div {
+.score-and-question {
   margin-right: 10px;
 }
 
-<<<<<<< HEAD
-/* BOTTOM CONTAINER W NEXT AND FEEDBACK*/
-.next-button-style {
-  width: 20%;
-  border: transparent; 
-  padding: 20px;
-  display: block;
-  background-color: #a278d7;
-  text-align: center;
-  color: white;
-  font-weight: bold;
-  font-size: 20px;
-  border-radius: 15px;
-  position: relative; /* Required for positioning pseudo-elements */
-  overflow: hidden; /* Ensures no overflow outside the border-radius */
-=======
 /* Submit BOTTOM */
 .submit-button {
   width: 25%;            /* Set the width of the button to 50% of its container */
-  padding: 15px 0;       /* Add padding for better height and comfort */
+  padding: 15px;       /* Add padding for better height and comfort */
   font-size: 20px;       /* Larger font size for better visibility */
-
-  
+  background-color: #a278d7;
+  border-radius: 15px;
   margin: 20px auto;  
   margin-top: 50px;
+  color:white;
+  border: #a278d7;
     
   display: block;       /* Ensure the button is a block element to take full width specified */
   
-  background-color: var(--submit-blue);
   font-weight: bold;
->>>>>>> ae22136ab1ba9a253cc988716c8e520ad6975a8c
+}
+
+.submit-button:hover{
+  background-color:#b896e3;
+  border: #a278d7;
+  cursor: pointer;
+}
+
+.submit-button:disabled{
+  background-color: rgb(245, 245, 245); /* Example background color */
+  border: #a278d7;
+  cursor: not-allowed;
+   
 }
 
 /* Next Button*/
@@ -418,20 +454,28 @@
   padding: 15px;
   display: block;
   text-align: center;
-  background-color: #a278d7;
+  background-color: #26b928;
   margin: 0 0 0 auto;  /* Adjusts the margin to auto on the left side, pushing the button to the right */
-  border-radius: 10px;
-  border-color: #a278d7;
+  border-radius: 15px;
   color: white;
   font-weight: bold;
 }
+.next-button-style:hover{
+  background-color:#41d841;
+  border: #a278d7;
+  cursor: pointer;
+}
 
-.feedback-and-next{
-  display: flex;
-  padding-bottom: 30px;
+.next-button-style:disabled{
+  background-color: rgb(245, 245, 245); /* Example background color */
+  border: #a278d7;
+  cursor: not-allowed; 
 }
 
 
+.audio-label{
+  padding-left: 200px;
+}
 
 
 
@@ -459,25 +503,24 @@
   display: block;
   text-align: center;
   background-color: white;
-<<<<<<< HEAD
-  margin: 0 auto;
-  border-radius: 15px;
-  border-color: #a278d7;
-=======
   margin: 30px auto; /* adjusted margin for spacing and centered alignment */
   border-radius: 10px;
->>>>>>> ae22136ab1ba9a253cc988716c8e520ad6975a8c
   color: #a278d7;
   font-weight: bold;
   font-size: 25px; /* adjusted font size for better fit within the button */
 }
 
-
-
 .option-button:hover{
   background-color:#a278d7;
+  border: #a278d7;
 }
-
+.option-button:disabled, .option-button:disabled:hover {
+  background-color: rgb(245, 245, 245); /* Example background color */
+  color: #a278d7; /* Example text color */
+  border: rgb(245, 245, 245);
+  cursor: not-allowed; /* Changes cursor to indicate the button is disabled */
+  /* Add other styles as necessary to match the disabled state */
+}
 
 
 /* Score Page */
