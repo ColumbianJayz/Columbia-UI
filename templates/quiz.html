@@ -61,11 +61,9 @@
     <div class="row">
         <div class="col-md-12 text-center">
                 <button id="next-question" class="next-button-style btn btn-primary mt-3" disabled> Continue</button>
-                {% if feedback %}
-                <div id="feedback-container" class="alert alert-info feedback-style mx-auto mt-2">
-                    {{ feedback }}
+                <div class="feedbackbox">
+                      
                 </div>
-                {% endif %}
         </div>
     </div>
     <input type="hidden" name="score" value="{{ score }}">
