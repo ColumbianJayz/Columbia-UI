@@ -1,4 +1,5 @@
-{% extends "layout.html" %} {% block content %}
+{% extends "layout3.html" %}
+{% block content %}
 
 <div id="quiz-container">
   {% if item %}
@@ -37,7 +38,7 @@
       <!-- Second Audio Element -->
       <audio controls class="quiz-audio-button">
         <source
-          src="{{ url_for('static', filename='audio/' + item.audio_quiz) }}"
+          src="{{ url_for('static', filename='audio/' + item.audio_quiz_2) }}"
           type="audio/mpeg"
         />
         Your browser does not support the audio element.

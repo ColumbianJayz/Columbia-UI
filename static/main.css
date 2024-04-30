@@ -24,6 +24,22 @@
   position: relative;
   display: inline-block;
 }
+.quiz-nav-container{
+  position: relative;
+  display: inline-block;
+  margin-top: 10px;
+
+}
+.explore-nav-text{
+  color: #a278d7;
+    font-size: 20px;
+}
+.explore-nav-container{
+  position: relative;
+  display: inline-block;
+  margin-top: 10px;
+  padding-left: 100px;
+}
 .logo-navbar {
   padding-left: 60px;
 }
@@ -31,6 +47,21 @@
 .logo-navbar-image {
   height: 65px;
   width: auto;
+}
+.link-navbar-image{
+  height:50px;
+  width: auto;
+  
+}
+.link-navbar-quiz-image{
+  height: 40px;
+  width: auto;
+    
+  
+}
+.quiz-navbar{
+  font-size: 20px;
+  
 }
 
 .logo-title {
@@ -208,6 +239,7 @@
   background-color: transparent;
 }
 
+
 .explore-quiz-button:hover{
   background-color:#b896e3;
   color:white;
@@ -219,7 +251,9 @@
   background-color: #a278d7; 
 }
 
-
+.cotainer-bae{
+  display: flexbox;
+}
 
 /* Learning Page */
 .header-container{
