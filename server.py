@@ -178,7 +178,8 @@ def quiz(quiz_id):
             'score': current_score,
             'attempts': attempts,
             'current_question_number': current_question_number,
-            'total_questions': total_questions
+            'total_questions': total_questions,
+            'correctAnswer': item['answer']
         })
 
     return render_template('quiz.html', item=item, quiz_id=quiz_id, feedback=None,

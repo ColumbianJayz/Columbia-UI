@@ -243,7 +243,7 @@
   background-color: white;
   color: #a278d7;
 }
-.nedx
+
 .next-button-text{
   color: white;
   font-weight: bold;
@@ -434,22 +434,7 @@
 .button-rows{
   display: flex;
 }
-#next-question{
-  width: 25%;            /* Set the width of the button to 50% of its container */
-  padding: 15px;       /* Add padding for better height and comfort */
-  font-size: 20px;       /* Larger font size for better visibility */
-  background-color: #a278d7;
-  border-radius: 15px;
-  margin: 20px auto;  
-  margin-top: 50px;
-  color:white;
-  border: #a278d7;
-  width: 40%;
-  display: block;       /* Ensure the button is a block element to take full width specified */
-  
-  font-weight: bold;
 
-}
 .button-test{
   display: flex;
   margin: 0 auto;
@@ -486,13 +471,13 @@
   cursor: not-allowed;
    
 }
-.next-button-style {
+#next-question {
   border: 1px solid;
   width: 15%;
   padding: 15px;
   display: block;
   text-align: center;
-  background-color: #26b928;
+  background-color: green;
   margin: 0 0 0 auto;  /* Adjusts the margin to auto on the left side, pushing the button to the right */
   border-radius: 15px;
   color: white;
@@ -500,13 +485,13 @@
 }
 
 /* Next Button*/
-.next-button-style:hover{
+#next-question:hover{
   background-color:#41d841;
   border: #a278d7;
   cursor: pointer;
 }
 
-.next-button-style:disabled{
+#next-question:disabled{
   background-color: rgb(245, 245, 245); /* Example background color */
   border: #a278d7;
   cursor: not-allowed; 
@@ -517,25 +502,25 @@
   padding-left: 200px;
 }
 
-
-
 /* Feedback directly below the Next button */
 .feedback-style {
   position: absolute;
-  margin-top: 10px;  /* Space above the feedback message */
+  text-align: center;
+  margin-top: 10px;  
   width: 100%;
   height: 235px;
   color:white;
   font-size: 20px;
   font-weight: bolder;
+  display: flex;
 }
 
 .correct-feedback {
-  background-color: #30d879c3;  /* Color for correct answers */
+  background-color: green;  /* Color for correct answers */
 }
 
 .incorrect-feedback {
-  background-color: #ff0022a8;  /* Color for incorrect answers */
+  background-color: red;  /* Color for incorrect answers */
 
 }
 
@@ -556,6 +541,7 @@
   font-size: 25px; /* adjusted font size for better fit within the button */
 }
 
+
 .option-button:hover{
   background-color:#a278d7;
   border: #a278d7;
@@ -565,7 +551,16 @@
   color: #a278d7; /* Example text color */
   border: rgb(245, 245, 245);
   cursor: not-allowed; /* Changes cursor to indicate the button is disabled */
-  /* Add other styles as necessary to match the disabled state */
+}
+
+.option-button.correct-feedback:disabled, .option-button.correct-feedback:disabled:hover {
+  background-color: green; /* Green background for correct answers */
+  color: white; /* White text for readability */
+}
+
+.option-button.incorrect-feedback:disabled, .option-button.incorrect-feedback:disabled:hover {
+  background-color: red; /* Red background for incorrect answers */
+  color: white; /* White text for readability */
 }
 
 
