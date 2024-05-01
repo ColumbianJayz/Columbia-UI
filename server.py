@@ -129,6 +129,7 @@ quiz_questions = {
 
 @app.route('/')
 def homepage():
+    current_score = 0
     return render_template('homepage.html')  # :data
 
 

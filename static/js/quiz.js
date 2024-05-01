@@ -9,6 +9,20 @@ $(document).ready(function() {
         lastClickedButton = $(this);
     });
 
+    $('.nav-link').click(function() {
+        // Call the reset score endpoint
+        $.ajax({
+            url: '/reset_score',
+            type: 'GET',  // Change to GET as your endpoint is designed to handle GET requests
+            success: function(response) {
+                console.log("Score reset successful.");
+            },
+            error: function() {
+                console.error("Failed to reset score.");
+            }
+        });
+    });
+
     $('#submit-answer').click(function(){
         let selectedOption = $('#selectedAnswer').val();
         let attempts = parseInt($('input[name="attempts"]').val()) || 0;
@@ -78,7 +92,7 @@ $(document).ready(function() {
         if(currentQuizId == '6'){
             $.ajax({
                 url: '/reset_score',
-                type: 'POST',
+                type: 'GET',
                 success: function(response) {
                 }
             });
