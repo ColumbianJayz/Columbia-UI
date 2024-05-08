@@ -43,7 +43,7 @@
             {% endif %}
         </div>
 
-        <div class="col-md-9">
+        <div class="col-md-9 ">
                 <div class="option-container d-flex justify-content-center flex-wrap">
                     {% for option in item.options %}
                     <button type="button" id="option-button" class="btn btn-outline-primary option-button mx-2 my-1">
@@ -64,7 +64,7 @@
             <input type="hidden" name="attempts" value="{{ attempts }}">
             <input type="hidden" name="score" value="{{ score }}">
             <div id="quiz-id" data-quiz-id="{{ quiz_id }}"></div>
-            <button id="next-question" class="next-style-button" disabled> Continue</button>  
+            <button class="next-button-style" disabled> Continue</button>  
             </div>
             <input type="hidden" name="score" value="{{ score }}">
             {% else %}

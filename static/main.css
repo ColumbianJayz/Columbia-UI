@@ -491,14 +491,17 @@
   width: 50%;
   margin-left: 600px;
 }
+.optionssss{
+  margin-right: 300px;
+}
 /* Submit BOTTOM */
 .submit-button {
   width: 25%;            /* Set the width of the button to 50% of its container */
   padding: 15px;       /* Add padding for better height and comfort */
   font-size: 20px;       /* Larger font size for better visibility */
-  background-color: #a278d7;
+  background-color: green;
   border-radius: 15px;
-  margin: 20px auto;  
+  margin: 0 auto;  
   margin-top: 50px;
   color:white;
   border: #a278d7;
@@ -522,15 +525,19 @@
    
 }
 .next-button-style {
-  border: 1px solid;
-  width: 15%;
-  padding: 15px;
-  display: block;
-  text-align: center;
-  background-color: #26b928;
-  margin: 0 0 0 auto;  /* Adjusts the margin to auto on the left side, pushing the button to the right */
+  width: 25%;            /* Set the width of the button to 50% of its container */
+  padding: 15px;       /* Add padding for better height and comfort */
+  font-size: 20px;       /* Larger font size for better visibility */
+  background-color: green;
   border-radius: 15px;
-  color: white;
+  margin: 0 auto;  
+  margin-top: 50px;
+  color:white;
+  border: #a278d7;
+  width: 40%;
+    
+  display: block;       /* Ensure the button is a block element to take full width specified */
+  
   font-weight: bold;
 }
 
