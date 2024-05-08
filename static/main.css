@@ -674,6 +674,8 @@ body{
     text-align: center;
     background-color:aliceblue;
     margin-top: 50px;
+    max-height: 600px;
+    min-height: 600px;
 }
 
 .score-image-pass{
@@ -683,7 +685,7 @@ body{
 }
 
 .score-image-fail{
-    width: 30%;
+    width: 25%;
 }
 
 .score-text-box{
@@ -691,6 +693,9 @@ body{
     height: 175px;
     border: 1px ;
     align-items: left;
+    max-height: 150px;
+    min-height: 150px;
+
 }
 
 .score-statement{
@@ -710,6 +715,7 @@ body{
     display: block;
     text-align: center;
     background-color: #a278d7;
+    border-radius: 15px;
     
 }
 
