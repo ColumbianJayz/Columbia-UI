@@ -174,7 +174,7 @@ def quiz(quiz_id):
         else:
             feedback_class = "incorrect-feedback"
             if attempts == 0:
-                feedback = "Incorrect! Try again."
+                feedback = "Incorrect! Try again "
                 attempts += 1
             else:
                 feedback = f"Incorrect! The correct answer was {current_answer}."
