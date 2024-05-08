@@ -53,6 +53,7 @@
                 </div>
                
     </div>
+    
     <!-- Third Row: Next Button and Feedback -->
 
     <div class="col-md-12 button-rows">
@@ -63,8 +64,7 @@
             <input type="hidden" name="attempts" value="{{ attempts }}">
             <input type="hidden" name="score" value="{{ score }}">
             <div id="quiz-id" data-quiz-id="{{ quiz_id }}"></div>
-            <button id="next-question" class="next-style-button" disabled> Continue</button>
-            <div class="feedbackbox">    
+            <button id="next-question" class="next-style-button" disabled> Continue</button>  
             </div>
             <input type="hidden" name="score" value="{{ score }}">
             {% else %}
@@ -76,7 +76,7 @@
 
     </div>
 </div>
-
+<div class="feedbackbox col-md-12">  
 
 <script src="{{ url_for('static', filename='js/quiz.js') }}"></script>
 

@@ -7,6 +7,20 @@ $(document).ready(function() {
         $('#submit-answer').prop('disabled', false);
 
     });
+    
+    $('.nav-link').click(function() {
+        // Call the reset score endpoint
+        $.ajax({
+            url: '/reset_score',
+            type: 'GET',  // Change to GET as your endpoint is designed to handle GET requests
+            success: function(response) {
+                console.log("Score reset successful.");
+            },
+            error: function() {
+                console.error("Failed to reset score.");
+            }
+        });
+    });
 
     $('#submit-answer').click(function(){
         let selectedOption = $('#selectedAnswer').val();
@@ -72,7 +86,6 @@ $(document).ready(function() {
                 success: function(response) {
                 },
                 error: function() {
-                    alert('Failed to reset the score.');
                 }
             });
 

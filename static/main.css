@@ -60,10 +60,11 @@
     
   
 }
-.quiz-navbar{
-  
+.feedbackbox{
+  text-align: center;
+  margin: 0 auto;
+  width: 100%;
 }
-
 .logo-title {
     position: absolute;
     top: 50%;  /* Center vertically */
@@ -612,12 +613,13 @@
     padding: 20px;
     display: block;
     text-align: center;
-    background-color: lightgrey;
+    background-color:aliceblue;
+    margin-top: 50px;
 }
 
 .score-image-pass{
     padding-top: 40px;
-    width: 12%;
+    width: 20%;
     padding-bottom: 30px;
 }
 
