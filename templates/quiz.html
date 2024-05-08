@@ -48,19 +48,17 @@
       {% endif %}
     </div>
 
-    <div class="col-md-9">
-      <div class="option-container d-flex justify-content-center flex-wrap">
-        {% for option in item.options %}
-        <button
-          type="button"
-          id="option-button"
-          class="btn btn-outline-primary option-button mx-2 my-1"
-        >
-          {{ option }}
-        </button>
-        {% endfor %}
-      </div>
+        <div class="col-md-9 ">
+                <div class="option-container d-flex justify-content-center flex-wrap">
+                    {% for option in item.options %}
+                    <button type="button" id="option-button" class="btn btn-outline-primary option-button mx-2 my-1">
+                        {{ option }}
+                    </button>
+                    {% endfor %}
+                </div>
+               
     </div>
+    
     <!-- Third Row: Next Button and Feedback -->
 
     <div class="col-md-12 button-rows">
@@ -85,7 +83,6 @@
   </div>
 </div>
 <div class="feedbackbox col-md-12">  
-
 
 <script src="{{ url_for('static', filename='js/quiz.js') }}"></script>
 

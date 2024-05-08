@@ -215,5 +215,6 @@ def reset_score():
     current_score = 0
     return "Score has been reset"
 
+
 if __name__ == '__main__':
     app.run(debug=True)

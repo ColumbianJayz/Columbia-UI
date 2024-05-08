@@ -54,13 +54,8 @@
   width: auto;
 }
 .quiz-navbar{
-  font-size: 20px;
-  position: relative;
-  display: inline-block;
-  font-weight: bold;
   
 }
-
 .logo-title {
     position: absolute;
     top: 50%;  /* Center vertically */
@@ -435,7 +430,7 @@
   width: 25%;            /* Set the width of the button to 50% of its container */
   padding: 15px;       /* Add padding for better height and comfort */
   font-size: 20px;       /* Larger font size for better visibility */
-  background-color: #a278d7;
+  background-color: #7839c5;
   border-radius: 15px;
   margin: 20px auto;  
   margin-top: 50px;
@@ -504,6 +499,9 @@
   width: 50%;
   margin-left: 600px;
 }
+.optionssss{
+  margin-right: 300px;
+}
 /* Submit BOTTOM */
 .submit-button {
   width: 25%;            /* Set the width of the button to 50% of its container */
@@ -530,7 +528,7 @@
 
 .submit-button:disabled{
   background-color: rgb(245, 245, 245); /* Example background color */
-  border: #a278d7;
+  border: #d0a9ff;
   cursor: not-allowed;
    
 }
@@ -614,12 +612,13 @@
     padding: 20px;
     display: block;
     text-align: center;
-    background-color: lightgrey;
+    background-color:aliceblue;
+    margin-top: 50px;
 }
 
 .score-image-pass{
     padding-top: 40px;
-    width: 12%;
+    width: 20%;
     padding-bottom: 30px;
 }
 
