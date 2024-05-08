@@ -60,7 +60,7 @@ $(document).ready(function() {
                 
                 $('#feedback-container').remove();
 
-                var feedbackContainer = $('<span>', {
+                var feedbackContainer = $('<div>', {
                     id: 'feedback-container',
                     class: 'feedback-style ' + response.feedback_class,
                     text: response.feedback

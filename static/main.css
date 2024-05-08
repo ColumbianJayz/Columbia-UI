@@ -407,11 +407,7 @@
     font-size: 1.2em;
     color: red;  /* or a suitable color based on correct (green) or incorrect (red) */
     margin-top: 20px;
-}
-.feedbackbox{
-  text-align: center;
-  margin: 0 auto;
-  width: 100%;
+    text-align: center;
 }
 
 .score-container {
@@ -430,7 +426,7 @@
   width: 25%;            /* Set the width of the button to 50% of its container */
   padding: 15px;       /* Add padding for better height and comfort */
   font-size: 20px;       /* Larger font size for better visibility */
-  background-color: #7839c5;
+  background-color: #a278d7;
   border-radius: 15px;
   margin: 20px auto;  
   margin-top: 50px;
@@ -441,18 +437,43 @@
   display: block;       /* Ensure the button is a block element to take full width specified */
   
   font-weight: bold;
+  position: relative; /* Required for positioning pseudo-elements */
+  overflow: hidden; /* Ensures no overflow outside the border-radius */
 }
-.next-question-style:hover{
-  background-color:#b896e3;
-  border: #a278d7;
-  cursor: pointer;
+.next-question-style::after {
+  content: "";
+  position: absolute;
+  bottom: 0px; 
+  left: 0;
+  width: 100%;
+  height: 6px; 
+  background-color: #7839c5; 
+  border-radius: 0 0 15px 15px;
+}
+.next-question-style:disabled::after {
+  display: none;  /* This will hide the ::after element when the button is disabled */
 }
 
+.next-question-style:active {
+  box-shadow: none;
+  top: 3px; 
+  background-color: #a278d7; 
+}
+
+.next-question-style:active::after {
+  height: 0;
+  background-color: transparent; 
+}
+
+.next-question-style:hover{
+  background-color:#b896e3;
+  color:white;
+}
 .next-question-style:disabled{
   background-color: rgb(245, 245, 245); /* Example background color */
-  border: #a278d7;
+  border: #d0a9ff;
   cursor: not-allowed;
-   
+  pointer-events: none; /* Ensures the button is not clickable */
 }
 .btn-center {
   margin-top: 50px;
@@ -518,19 +539,43 @@
   display: block;       /* Ensure the button is a block element to take full width specified */
   
   font-weight: bold;
+  position: relative; /* Required for positioning pseudo-elements */
+  overflow: hidden; /* Ensures no overflow outside the border-radius */
+}
+.submit-button::after {
+  content: "";
+  position: absolute;
+  bottom: 0px; 
+  left: 0;
+  width: 100%;
+  height: 6px; 
+  background-color: #7839c5; 
+  border-radius: 0 0 15px 15px;
+}
+.submit-button:disabled::after {
+  display: none;  /* This will hide the ::after element when the button is disabled */
+}
+
+.submit-button:active {
+  box-shadow: none;
+  top: 3px; 
+  background-color: #a278d7; 
+}
+
+.submit-button:active::after {
+  height: 0;
+  background-color: transparent; 
 }
 
 .submit-button:hover{
   background-color:#b896e3;
-  border: #a278d7;
-  cursor: pointer;
+  color:white;
 }
-
 .submit-button:disabled{
   background-color: rgb(245, 245, 245); /* Example background color */
   border: #d0a9ff;
   cursor: not-allowed;
-   
+  pointer-events: none; /* Ensures the button is not clickable */
 }
 
 
@@ -543,19 +588,26 @@
 /* Feedback directly below the Next button */
 .feedback-style {
   margin-top: 10px;  
-  width: 100%;
-  height: 46px;
+  width: 101%;
+  height: 70px;
   color:white;
-  font-size: 20px;
+  font-size: 25px;
   font-weight: bolder;
+  text-align: center;
+  padding-top: 10px;
+
+  
 }
 
 .correct-feedback {
-  background-color: green;  /* Color for correct answers */
+  background-color: green;
+  /* Color for correct answers */
 }
 
 .incorrect-feedback {
-  background-color: red;  /* Color for incorrect answers */
+  background-color: red;
+  text-align: center;
+    /* Color for incorrect answers */
 
 }
 
