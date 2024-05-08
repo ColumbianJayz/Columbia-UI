@@ -430,7 +430,7 @@
   width: 25%;            /* Set the width of the button to 50% of its container */
   padding: 15px;       /* Add padding for better height and comfort */
   font-size: 20px;       /* Larger font size for better visibility */
-  background-color: #a278d7;
+  background-color: #7839c5;
   border-radius: 15px;
   margin: 20px auto;  
   margin-top: 50px;
@@ -507,9 +507,9 @@
   width: 25%;            /* Set the width of the button to 50% of its container */
   padding: 15px;       /* Add padding for better height and comfort */
   font-size: 20px;       /* Larger font size for better visibility */
-  background-color: green;
+  background-color: #a278d7;
   border-radius: 15px;
-  margin: 0 auto;  
+  margin: 20px auto;  
   margin-top: 50px;
   color:white;
   border: #a278d7;
@@ -528,21 +528,9 @@
 
 .submit-button:disabled{
   background-color: rgb(245, 245, 245); /* Example background color */
-  border: #a278d7;
+  border: #d0a9ff;
   cursor: not-allowed;
    
-}
-.next-button-style {
-  border: 1px solid;
-  width: 15%;
-  padding: 15px;
-  display: block;
-  text-align: center;
-  background-color: #26b928;
-  margin: 0 0 0 auto;  /* Adjusts the margin to auto on the left side, pushing the button to the right */
-  border-radius: 15px;
-  color: white;
-  font-weight: bold;
 }
 
 
