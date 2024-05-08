@@ -60,9 +60,9 @@ $(document).ready(function() {
                 
                 $('#feedback-container').remove();
 
-                var feedbackContainer = $('<div>', {
+                var feedbackContainer = $('<span>', {
                     id: 'feedback-container',
-                    class: 'feedback-style mx-auto mt-2 ' + response.feedback_class,
+                    class: 'feedback-style ' + response.feedback_class,
                     text: response.feedback
                 });
             
