@@ -1,11 +1,26 @@
 $(document).ready(function() {
+    var lastClickedButton = null;
     
     $('.option-button').click(function() {
         $('.option-button').removeClass('active');
         $(this).addClass('active');
         $('#selectedAnswer').val($(this).text().trim());
         $('#submit-answer').prop('disabled', false);
+        lastClickedButton = $(this);
+    });
 
+    $('.nav-link').click(function() {
+        // Call the reset score endpoint
+        $.ajax({
+            url: '/reset_score',
+            type: 'GET',  // Change to GET as your endpoint is designed to handle GET requests
+            success: function(response) {
+                console.log("Score reset successful.");
+            },
+            error: function() {
+                console.error("Failed to reset score.");
+            }
+        });
     });
     
     $('.nav-link').click(function() {
@@ -52,6 +67,7 @@ $(document).ready(function() {
                 });
             
                 $('.feedbackbox').prepend(feedbackContainer);
+                $('#feedback-container').fadeIn();
 
                 $('input[name="attempts"]').val(response.attempts);
                 console.log("Updated attempts in hidden input:", $('input[name="attempts"]').val());
@@ -65,8 +81,16 @@ $(document).ready(function() {
                     $('#next-question').prop('disabled', false);
                     $('.option-button').prop('disabled', true);
 
+                    $('.option-button').each(function() {
+                        if ($(this).text().trim() === response.correctAnswer) {
+                            $(this).addClass('correct-feedback')
+                        }
+                    });
+
                 }
                 $('#submit-answer').prop('disabled', true);
+                lastClickedButton.prop('disabled', true); 
+                lastClickedButton.addClass(response.feedback_class);
             },
             error: function(xhr, status, error) {
                 console.error('Error occurred:', error);
@@ -82,13 +106,13 @@ $(document).ready(function() {
         if(currentQuizId == '6'){
             $.ajax({
                 url: '/reset_score',
-                type: 'POST',
+                type: 'GET',
                 success: function(response) {
                 },
                 error: function() {
+                    alert('Failed to reset the score.');
                 }
             });
-
             let score = parseInt($('input[name="score"]').val()) || 0;
             let baseUrl = window.location.origin;
             let nextUrl = `${baseUrl}/score/${score}`;

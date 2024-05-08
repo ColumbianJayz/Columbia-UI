@@ -80,7 +80,7 @@ quiz_questions = {
         "quiz_id": "2",
         "audio_quiz": "argentinaAuto.mp3",
         "audio_quiz_2": "ArgentinaFiesta.mp3",
-        "options": ["Venezuela 🇻🇪", "Argentina 🇦🇷", "Mexico 🇲🇽", "Puerto Rico 🇵🇷"],
+        "options": ["Argentina 🇦🇷", "Venezuela 🇻🇪", "Mexico 🇲🇽", "Puerto Rico 🇵🇷"],
         "answer": "Argentina 🇦🇷",
         "next_question": "3",
         "previous_question": "1"
@@ -89,7 +89,7 @@ quiz_questions = {
         "quiz_id": "3",
         "audio_quiz": "colombiaCarro.mp3",
         "audio_quiz_2": "ColombiaFiesta.m4a",
-        "options": ["Argentina 🇦🇷", "Colombia 🇨🇴", "Puerto Rico 🇵🇷", "El Salvador 🇸🇻"],
+        "options": ["Argentina 🇦🇷", "Puerto Rico 🇵🇷", "El Salvador 🇸🇻", "Colombia 🇨🇴"],
         "answer": "Colombia 🇨🇴",
         "next_question": "4",
         "previous_question": "2"
@@ -107,7 +107,7 @@ quiz_questions = {
         "quiz_id": "5",
         "audio_quiz": "mexico.mp3",
         "audio_quiz_2": "mexicoFiesta.mp3",
-        "options": ["Puerto Rico 🇵🇷", "El Salvador 🇸🇻", "Mexico 🇲🇽", "Venezuela 🇻🇪"],
+        "options": ["Puerto Rico 🇵🇷", "El Salvador 🇸🇻", "Venezuela 🇻🇪", "Mexico 🇲🇽"],
         "answer": "Mexico 🇲🇽",
         "next_question": "6",
         "previous_question": "4"
@@ -129,6 +129,7 @@ quiz_questions = {
 
 @app.route('/')
 def homepage():
+    current_score = 0
     return render_template('homepage.html')  # :data
 
 
@@ -185,7 +186,8 @@ def quiz(quiz_id):
             'score': current_score,
             'attempts': attempts,
             'current_question_number': current_question_number,
-            'total_questions': total_questions
+            'total_questions': total_questions,
+            'correctAnswer': item['answer']
         })
 
     return render_template('quiz.html', item=item, quiz_id=quiz_id, feedback=None,
