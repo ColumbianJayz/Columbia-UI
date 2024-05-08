@@ -413,6 +413,11 @@
     color: red;  /* or a suitable color based on correct (green) or incorrect (red) */
     margin-top: 20px;
 }
+.feedbackbox{
+  text-align: center;
+  margin: 0 auto;
+  width: 100%;
+}
 
 .score-container {
   border: 2px solid  #a278d7;
@@ -426,7 +431,34 @@
   margin-top: 15px;
   
 }
+.next-question-style{
+  width: 25%;            /* Set the width of the button to 50% of its container */
+  padding: 15px;       /* Add padding for better height and comfort */
+  font-size: 20px;       /* Larger font size for better visibility */
+  background-color: #a278d7;
+  border-radius: 15px;
+  margin: 20px auto;  
+  margin-top: 50px;
+  color:white;
+  border: #a278d7;
+  width: 40%;
+    
+  display: block;       /* Ensure the button is a block element to take full width specified */
+  
+  font-weight: bold;
+}
+.next-question-style:hover{
+  background-color:#b896e3;
+  border: #a278d7;
+  cursor: pointer;
+}
 
+.next-question-style:disabled{
+  background-color: rgb(245, 245, 245); /* Example background color */
+  border: #a278d7;
+  cursor: not-allowed;
+   
+}
 .btn-center {
   margin-top: 50px;
   margin-left: 265px;  /* This will center the button inside its container */
@@ -502,31 +534,8 @@
   cursor: not-allowed;
    
 }
-#next-question {
-  border: 1px solid;
-  width: 15%;
-  padding: 15px;
-  display: block;
-  text-align: center;
-  background-color: green;
-  margin: 0 0 0 auto;  /* Adjusts the margin to auto on the left side, pushing the button to the right */
-  border-radius: 15px;
-  color: white;
-  font-weight: bold;
-}
 
-/* Next Button*/
-#next-question:hover{
-  background-color:#41d841;
-  border: #a278d7;
-  cursor: pointer;
-}
 
-#next-question:disabled{
-  background-color: rgb(245, 245, 245); /* Example background color */
-  border: #a278d7;
-  cursor: not-allowed; 
-}
 
 
 .audio-label{
